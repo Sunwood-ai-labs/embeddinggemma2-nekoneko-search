@@ -1,0 +1,8 @@
+﻿population,metric,n,median_ms,mean_ms,p95_nearest_rank_ms,max_ms,query_encode_ms,rank_ms,query_id,test_call_order
+test_all_calls_180,elapsed_ms,180,122.19815,130.47727722222223,201.8778,277.5302,,,,
+test_all_calls_180,query_encode_ms,180,121.946,130.2316338888889,201.6168,277.2371,,,,
+test_all_calls_180,rank_ms,180,0.21505000000000002,0.23865722222222222,0.3947,0.6104,,,,
+test_warm_calls_after_first_179,elapsed_ms,179,121.9005,130.44522122905028,213.5695,277.5302,,,,
+test_warm_calls_after_first_179,query_encode_ms,179,121.6894,130.19959329608938,213.3675,277.2371,,,,
+test_warm_calls_after_first_179,rank_ms,179,0.2146,0.23863743016759778,0.4035,0.6104,,,,
+first_chronological_call,elapsed_ms,1,136.2153,136.2153,136.2153,136.2153,135.9669,0.2422,NKB-001,1

@@ -1,0 +1,130 @@
+{
+  "schema": "embeddinggemma2-native-smoke/v1",
+  "model_id": "google/embeddinggemma-2",
+  "requested_revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+  "snapshot_path": "/cache/hub/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b",
+  "cpu_threads": 4,
+  "device": "cpu",
+  "dtype_requested": "torch.float32",
+  "text_query_prompt": "task: question answering | query: ",
+  "text_document_prompt": "title: none | text: ",
+  "media_document_prompt": "",
+  "video_processing": {
+    "fps": 1,
+    "max_frames": 32,
+    "overflow_strategy": "uniform",
+    "add_timestamps": false
+  },
+  "inputs": {
+    "text": {
+      "asset_id": "P-QA",
+      "source": "first source PDF page text",
+      "source_sha256": "a9229dc17a48b6221b0e9615631cbb6a13c767f54c35fa405e57fa67c3a1b52a"
+    },
+    "image": {
+      "asset_id": "V-F2",
+      "source": "first decoded video frame at 0 seconds",
+      "source_sha256": "6a769269781ac8e987a9424657f37f92df6aa946027db27208f30a065c4b156c",
+      "derived_sha256": "3c3c7558f4aa4c360b85acd4a20a74fa5413ae8ab5f750c3dac2ed5c56d16a5a"
+    },
+    "audio": {
+      "asset_id": "A-QA",
+      "source_interval_seconds": [
+        0,
+        4
+      ],
+      "source_sha256": "4f34d64481b17b0d7ac28da9f6695edf43f02e0fb16dfd8b755463626bf6471e",
+      "derived_sha256": "f5056599fa3a0db70f041bd573f2b75905164d4bc9d0c88b996c31b93b514bcc"
+    },
+    "video": {
+      "asset_id": "V-F2",
+      "source_interval_seconds": [
+        0,
+        24
+      ],
+      "source_sha256": "6a769269781ac8e987a9424657f37f92df6aa946027db27208f30a065c4b156c"
+    }
+  },
+  "modalities": {
+    "text": {
+      "status": "ok",
+      "dimension": 768,
+      "dtype": "float32",
+      "norm": 1.0,
+      "encode_seconds": 1.50943,
+      "rss_bytes_after": 3875901440
+    },
+    "image": {
+      "status": "ok",
+      "dimension": 768,
+      "dtype": "float32",
+      "norm": 1.0,
+      "encode_seconds": 8.51337,
+      "rss_bytes_after": 3889274880
+    },
+    "audio": {
+      "status": "ok",
+      "dimension": 768,
+      "dtype": "float32",
+      "norm": 0.9999999403953552,
+      "encode_seconds": 3.213464,
+      "rss_bytes_after": 3904741376
+    },
+    "video": {
+      "status": "ok",
+      "dimension": 768,
+      "dtype": "float32",
+      "norm": 1.0,
+      "encode_seconds": 111.704928,
+      "rss_bytes_after": 4008112128
+    },
+    "text_query": {
+      "status": "ok",
+      "dimension": 768,
+      "dtype": "float32",
+      "norm": 0.9999999403953552,
+      "encode_seconds": 0.872877
+    }
+  },
+  "model_load_seconds": 12.488799,
+  "architecture": "EmbeddingGemma2Model",
+  "vision_config_loaded": true,
+  "audio_config_loaded": true,
+  "supports_api": {
+    "text": true,
+    "image": true,
+    "audio": true,
+    "video": true
+  },
+  "parameters_loaded": 744371488,
+  "parameter_dtypes": [
+    "torch.float32"
+  ],
+  "max_seq_length": 1000000000000000019884624838656,
+  "prompt_config": {
+    "query": "task: search result | query: ",
+    "document": "title: none | text: ",
+    "BitextMining": "task: search result | query: ",
+    "Classification": "task: classification | query: ",
+    "Clustering": "task: clustering | query: ",
+    "CodeRetrieval": "task: code retrieval | query: ",
+    "Document": "title: none | text: ",
+    "FactChecking": "task: fact checking | query: ",
+    "InstructionRetrieval": "task: code retrieval | query: ",
+    "MultilabelClassification": "task: classification | query: ",
+    "PairClassification": "task: sentence similarity | query: ",
+    "QuestionAnswering": "task: question answering | query: ",
+    "Reranking": "task: search result | query: ",
+    "Retrieval": "task: search result | query: ",
+    "Retrieval-document": "title: none | text: ",
+    "Retrieval-query": "task: search result | query: ",
+    "STS": "task: sentence similarity | query: ",
+    "SearchQuery": "task: search result | query: ",
+    "SentenceSimilarity": "task: sentence similarity | query: ",
+    "Summarization": "task: sentence similarity | query: "
+  },
+  "rss_after_smokes_bytes": 3930103808,
+  "cgroup_peak_bytes": 5420773376,
+  "smoke_wall_seconds": 138.814525,
+  "all_modalities_ok": true
+}

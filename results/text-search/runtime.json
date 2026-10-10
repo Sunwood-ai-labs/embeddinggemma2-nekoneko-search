@@ -1,0 +1,29 @@
+{
+  "model_id": "google/embeddinggemma-2",
+  "requested_revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+  "resolved_revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+  "loaded_from_snapshot": "/cache/hub/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b",
+  "checkpoint_blob": "47a68c5b4bb3b43eb611ba512b8a0830e80ce08dfddedd5ba391a4835cbb9abd",
+  "architecture": "EmbeddingGemma2Model",
+  "device": "cpu",
+  "dtype": "torch.float32",
+  "dimensions": 768,
+  "parameters_loaded": 271002624,
+  "torch_threads": 4,
+  "current_documents": 24,
+  "archived_documents_excluded": 2,
+  "load_seconds": 11.411,
+  "index_seconds": 6.787,
+  "query_prompt": "task: search result | query: ",
+  "document_prompt": "title: <title> | text: ",
+  "corpus_sha256": "2a40274d9f650e8a0071b1cfa7416ffcdbe1048bf590f22d20c89b9cbcd0e449",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "transformers": "5.19.0",
+    "sentence-transformers": "6.1.0",
+    "numpy": "2.5.3",
+    "fastapi": "0.143.0"
+  },
+  "fictional": true,
+  "retrieval_only": true
+}

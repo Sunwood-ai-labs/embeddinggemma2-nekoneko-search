@@ -1,0 +1,69 @@
+{
+  "schema": "embeddinggemma2-query-stage-recovery/v1",
+  "recorded_at_utc": "2026-10-10T04:18:22Z",
+  "root_cause": "Query paths in run_experiment.py were incorrectly resolved beneath /benchmark/run, while compose.yaml mounts query files directly beneath /benchmark.",
+  "initial_queries_executed": 0,
+  "document_embeddings_repeated": false,
+  "source_document_embedding_attempt": "attempt-01",
+  "source_document_manifest_sha256": "24c17062adb99cace4d62fede27f0af0ac42452ea81650f99e98f107cfa1edba",
+  "formal_query_manifest": "run_manifest-attempt-05-query-threads4.json",
+  "formal_query_manifest_sha256": "663cf6dc7003a03447808555b68523d02d496eb9d33a1f930fa343d59a9c39af",
+  "evaluation_contract_sha256": "fdbcc59d04e75d1d32af0bce7ab23cbb934b687d718d5767f5fba90aea6c632a",
+  "aggregation_contract_sha256": "173743e7aa28519ef383b2cf710aa4790fc630529b8d7a6cfdf1ddb825dcf5a0",
+  "dev_query_sha256": "93c716195daa7cee0ae4d61d5ec2efa9edbd9ebb991840850833c4b9012cd4f7",
+  "test_query_sha256": "9659da6bf2d49c4dfcc6525d0e57091c9ef32bdc909485a0a3312cb1f8e49e71",
+  "excluded_query_attempt": {
+    "attempt_id": "attempt-01",
+    "reason": "actual PyTorch thread count was 1, below the frozen 4-thread condition",
+    "records_preserved_at": [
+      "results/attempt-01/dev-query-results.jsonl",
+      "results/attempt-01/test-query-results.jsonl",
+      "results/attempt-01/runtime.json"
+    ]
+  },
+  "excluded_prior_attempts": [
+    {
+      "attempt_id": "attempt-01",
+      "reason": "actual PyTorch thread count was 1, below the frozen 4-thread condition",
+      "records_preserved_at": [
+        "results/attempt-01/dev-query-results.jsonl",
+        "results/attempt-01/test-query-results.jsonl",
+        "results/attempt-01/runtime.json"
+      ]
+    },
+    {
+      "attempt_id": "attempt-02",
+      "reason": "the manifest captured the prior aggregation-contract SHA and does not satisfy the current frozen aggregation contract",
+      "records_preserved_at": [
+        "results/attempt-02/dev-query-results.jsonl",
+        "results/attempt-02/test-query-results.jsonl",
+        "results/attempt-02/runtime.json",
+        "results/attempt-02/raw-record-validation.json"
+      ]
+    },
+    {
+      "attempt_id": "attempt-03-query-threads4",
+      "reason": "pre-query provenance guard expected a runtime-probe metadata field absent from the source manifest; no query model call occurred",
+      "records_preserved_at": [
+        "results/attempt-03-query-threads4/query-resume-failure.json"
+      ]
+    },
+    {
+      "attempt_id": "attempt-04-query-threads4",
+      "reason": "all 195 query outputs were written, but completion recording failed because the source manifest predates an added thread-setter metadata field",
+      "records_preserved_at": [
+        "results/attempt-04-query-threads4/dev-query-results.jsonl",
+        "results/attempt-04-query-threads4/test-query-results.jsonl",
+        "results/attempt-04-query-threads4/run-events.jsonl",
+        "results/attempt-04-query-threads4/query-resume-failure.json"
+      ]
+    }
+  ],
+  "frozen_manifest_sha256": "663cf6dc7003a03447808555b68523d02d496eb9d33a1f930fa343d59a9c39af",
+  "frozen_index_sha256": "2675ef297502febc2aaeed260d4f8aa4621d37afcc6e10445aabdbff24c6adda",
+  "preserved_initial_failure": "results/attempt-05-query-threads4/run-result-before-query-mount-recovery.json",
+  "recovered_query_result_paths": [
+    "results/attempt-05-query-threads4/dev-query-results.jsonl",
+    "results/attempt-05-query-threads4/test-query-results.jsonl"
+  ]
+}

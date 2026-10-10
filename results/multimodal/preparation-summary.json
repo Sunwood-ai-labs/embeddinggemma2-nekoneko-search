@@ -1,0 +1,345 @@
+{
+  "schema": "embeddinggemma2-accuracy-speed-preparation/v1",
+  "model_revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+  "chunk_count": 63,
+  "chunks_by_asset": {
+    "D-HR": 7,
+    "D-IT": 4,
+    "P-QA": 2,
+    "P-OLD": 1,
+    "X-LOT": 7,
+    "X-EXP": 8,
+    "S-PLAN": 6,
+    "A-QA": 4,
+    "A-LOG": 4,
+    "V-F2": 4,
+    "V-W3": 4,
+    "V-C1": 4,
+    "V-SAFE": 4,
+    "V-W3-M": 4
+  },
+  "chunks_by_modality": {
+    "audio": 8,
+    "document": 11,
+    "pdf": 3,
+    "presentation": 6,
+    "spreadsheet": 15,
+    "video": 20
+  },
+  "office_rules": {
+    "docx": "paragraphs grouped by natural heading section; tables are separate natural chunks",
+    "pdf": "one chunk per source page",
+    "xlsx": "one chunk per populated data row with column labels and source cell coordinates",
+    "pptx": "one chunk per source slide"
+  },
+  "media_rules": {
+    "audio_chunk_seconds": 15.0,
+    "audio_conversion": "ffmpeg to mono 16 kHz PCM WAV, fixed consecutive intervals",
+    "audio_model_limit_note": "15-second segments stay below the approximately 30-second processor input limit",
+    "audio_tail_rule": "if the final residue is shorter than 1 second, extend the preceding final interval to the source end; never emit a sub-second audio chunk",
+    "video_chunk_seconds": 6.0,
+    "video_conversion": "ffmpeg fixed consecutive clips, H.264 CRF 0, yuv420p",
+    "video_processor": {
+      "fps": 1,
+      "max_frames": 32,
+      "overflow_strategy": "uniform",
+      "add_timestamps": false
+    },
+    "media_prompt": "empty prompt; do not prepend the text document task prefix to media-only inputs",
+    "no_question_conditioned_cuts": true
+  },
+  "media_segments": [
+    {
+      "asset_id": "A-QA",
+      "source_duration_seconds": 60.97288,
+      "chunk_seconds": 15.0,
+      "short_audio_tail_merged_into_previous_interval": true,
+      "segment_count": 4,
+      "segments": [
+        {
+          "path": "derived/audio/A-QA/segment-01.wav",
+          "sha256": "4a834982ec43064fb65c72d544ceb09dff379257f6a153e485d7211b005519ba",
+          "bytes": 480078,
+          "start_seconds": 0.0,
+          "end_seconds": 15.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/audio/A-QA/segment-02.wav",
+          "sha256": "1d5420809173ff3ae8e849557370a946771ef400338f0f02cb16ad8e7970efaf",
+          "bytes": 480078,
+          "start_seconds": 15.0,
+          "end_seconds": 30.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/audio/A-QA/segment-03.wav",
+          "sha256": "c57c45aed5c6b5893372803624636014a8db08676908c5bcbb37099339463f24",
+          "bytes": 480078,
+          "start_seconds": 30.0,
+          "end_seconds": 45.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/audio/A-QA/segment-04.wav",
+          "sha256": "d8d3326e90a925d4534c68d08427f8c495ea4c0c0dade11f744d6863a3bb82e2",
+          "bytes": 511210,
+          "start_seconds": 45.0,
+          "end_seconds": 60.97288,
+          "ffmpeg_stderr": ""
+        }
+      ]
+    },
+    {
+      "asset_id": "A-LOG",
+      "source_duration_seconds": 60.001905,
+      "chunk_seconds": 15.0,
+      "short_audio_tail_merged_into_previous_interval": true,
+      "segment_count": 4,
+      "segments": [
+        {
+          "path": "derived/audio/A-LOG/segment-01.wav",
+          "sha256": "8a7c791113a44f726a956154f9f4a6284e4b2d5c0ffd11b8cd2afca881168095",
+          "bytes": 480078,
+          "start_seconds": 0.0,
+          "end_seconds": 15.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/audio/A-LOG/segment-02.wav",
+          "sha256": "42e1d5e1848b205cb30103a8ab831e776e7c6d0793f177f72c383d9540e441bf",
+          "bytes": 480078,
+          "start_seconds": 15.0,
+          "end_seconds": 30.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/audio/A-LOG/segment-03.wav",
+          "sha256": "1c928050e1c300f44c929346f80173e3628c8e2e2906b775e8455393b93c1c0e",
+          "bytes": 480078,
+          "start_seconds": 30.0,
+          "end_seconds": 45.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/audio/A-LOG/segment-04.wav",
+          "sha256": "fa4d9969117086960f1b5735ace713848c980e38ad07b254862533791cc97c78",
+          "bytes": 480138,
+          "start_seconds": 45.0,
+          "end_seconds": 60.001905,
+          "ffmpeg_stderr": ""
+        }
+      ]
+    },
+    {
+      "asset_id": "V-F2",
+      "source_duration_seconds": 24.0,
+      "chunk_seconds": 6.0,
+      "short_audio_tail_merged_into_previous_interval": false,
+      "segment_count": 4,
+      "segments": [
+        {
+          "path": "derived/video/V-F2/segment-01.mp4",
+          "sha256": "7d5a4a91c97e04e8c15c97fd597d93b2938c17dcaf59dcf634040fffcf00a1b7",
+          "bytes": 594764,
+          "start_seconds": 0.0,
+          "end_seconds": 6.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-F2/segment-02.mp4",
+          "sha256": "93c11de469b01539b9a2c276feeb6399d35a39dbd5f2aba55dc34a8890de29ac",
+          "bytes": 644146,
+          "start_seconds": 6.0,
+          "end_seconds": 12.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-F2/segment-03.mp4",
+          "sha256": "cbb68abe8c4c174c50bac3b91489473e3d1bfdab5c64627f30ecd19ce2ea4769",
+          "bytes": 603078,
+          "start_seconds": 12.0,
+          "end_seconds": 18.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-F2/segment-04.mp4",
+          "sha256": "f54b6edc79eaacdbfb5ba762e6cfaa7fd044322d1bf9f82c0c3b304d19fb4187",
+          "bytes": 640857,
+          "start_seconds": 18.0,
+          "end_seconds": 24.0,
+          "ffmpeg_stderr": ""
+        }
+      ]
+    },
+    {
+      "asset_id": "V-W3",
+      "source_duration_seconds": 24.0,
+      "chunk_seconds": 6.0,
+      "short_audio_tail_merged_into_previous_interval": false,
+      "segment_count": 4,
+      "segments": [
+        {
+          "path": "derived/video/V-W3/segment-01.mp4",
+          "sha256": "47eecfff7e291000faaa0b7524b2340119ebfdba37549052bc145159fa9aa2ae",
+          "bytes": 597831,
+          "start_seconds": 0.0,
+          "end_seconds": 6.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-W3/segment-02.mp4",
+          "sha256": "b80728dffaa32c3077edfcba2011292edfa9b2387431e3a9ba1deeac0a95ac75",
+          "bytes": 660380,
+          "start_seconds": 6.0,
+          "end_seconds": 12.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-W3/segment-03.mp4",
+          "sha256": "039be9408f961ff881e4fe1663c11a340fbc98e7dfdc510d52f84b35ab8e6e4d",
+          "bytes": 599201,
+          "start_seconds": 12.0,
+          "end_seconds": 18.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-W3/segment-04.mp4",
+          "sha256": "9ee610c242b26e453d50a0e80fe563421da992e01ffb1fc45ef8f3bcba9783f6",
+          "bytes": 625616,
+          "start_seconds": 18.0,
+          "end_seconds": 24.0,
+          "ffmpeg_stderr": ""
+        }
+      ]
+    },
+    {
+      "asset_id": "V-C1",
+      "source_duration_seconds": 24.0,
+      "chunk_seconds": 6.0,
+      "short_audio_tail_merged_into_previous_interval": false,
+      "segment_count": 4,
+      "segments": [
+        {
+          "path": "derived/video/V-C1/segment-01.mp4",
+          "sha256": "321f5f6930ff73aacfa2d72ce452811547256945d2ccf908670e490d632dd4a9",
+          "bytes": 831666,
+          "start_seconds": 0.0,
+          "end_seconds": 6.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-C1/segment-02.mp4",
+          "sha256": "1ce3030f1cef3a71c01a7398a88394a8a5d49b97054a77a007b3ce75cc8f2cce",
+          "bytes": 909762,
+          "start_seconds": 6.0,
+          "end_seconds": 12.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-C1/segment-03.mp4",
+          "sha256": "4116e993035ae51e668b97166914b27bdbd34fd4927c10f6fdbb83a327869c51",
+          "bytes": 883438,
+          "start_seconds": 12.0,
+          "end_seconds": 18.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-C1/segment-04.mp4",
+          "sha256": "76c79507ce65401eb28064c78ecf4be2c2e69f10cfbdd70bb8647dde7e9da7e0",
+          "bytes": 852035,
+          "start_seconds": 18.0,
+          "end_seconds": 24.0,
+          "ffmpeg_stderr": ""
+        }
+      ]
+    },
+    {
+      "asset_id": "V-SAFE",
+      "source_duration_seconds": 24.0,
+      "chunk_seconds": 6.0,
+      "short_audio_tail_merged_into_previous_interval": false,
+      "segment_count": 4,
+      "segments": [
+        {
+          "path": "derived/video/V-SAFE/segment-01.mp4",
+          "sha256": "bfcb7dc199459de77441034848d24e2c64fc406a5342b45be973e8059877d004",
+          "bytes": 929533,
+          "start_seconds": 0.0,
+          "end_seconds": 6.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-SAFE/segment-02.mp4",
+          "sha256": "e9fa700ea61d951b03199b5f19eb6ab8ffcf78889b9068ffbbf44ac096a84ee2",
+          "bytes": 1011477,
+          "start_seconds": 6.0,
+          "end_seconds": 12.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-SAFE/segment-03.mp4",
+          "sha256": "066619e8862ba36a1d6d8e8d6dbe16a29aa45036141f1050fdaebee16018d723",
+          "bytes": 978660,
+          "start_seconds": 12.0,
+          "end_seconds": 18.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-SAFE/segment-04.mp4",
+          "sha256": "2dbdb3851cc118ac3ce616b8888aadcf0e54c73864a09086192e4e79e5b34535",
+          "bytes": 1161070,
+          "start_seconds": 18.0,
+          "end_seconds": 24.0,
+          "ffmpeg_stderr": ""
+        }
+      ]
+    },
+    {
+      "asset_id": "V-W3-M",
+      "source_duration_seconds": 24.0,
+      "chunk_seconds": 6.0,
+      "short_audio_tail_merged_into_previous_interval": false,
+      "segment_count": 4,
+      "segments": [
+        {
+          "path": "derived/video/V-W3-M/segment-01.mp4",
+          "sha256": "dabe5fd9d3386d60176947245a90be766fdb12cf78546b75549cd98629671f16",
+          "bytes": 1009651,
+          "start_seconds": 0.0,
+          "end_seconds": 6.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-W3-M/segment-02.mp4",
+          "sha256": "1f7a136e20fc034173d8fca3a269606abef88210c888babae24169bb651e5310",
+          "bytes": 934685,
+          "start_seconds": 6.0,
+          "end_seconds": 12.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-W3-M/segment-03.mp4",
+          "sha256": "4ab670c3a53dded029f12894039b7e1e446cd4148d883efc29d1cff749dce127",
+          "bytes": 954240,
+          "start_seconds": 12.0,
+          "end_seconds": 18.0,
+          "ffmpeg_stderr": ""
+        },
+        {
+          "path": "derived/video/V-W3-M/segment-04.mp4",
+          "sha256": "6f86380706dc89906e5c66ff304db607e6359d80f2c48d0bedf85cb195ced142",
+          "bytes": 878638,
+          "start_seconds": 18.0,
+          "end_seconds": 24.0,
+          "ffmpeg_stderr": ""
+        }
+      ]
+    }
+  ],
+  "qa_or_source_material_used": false,
+  "index_path": "/benchmark/run/index.jsonl",
+  "index_sha256": "2675ef297502febc2aaeed260d4f8aa4621d37afcc6e10445aabdbff24c6adda",
+  "extraction_seconds": 20.084474,
+  "chunk_id_uniqueness": true
+}

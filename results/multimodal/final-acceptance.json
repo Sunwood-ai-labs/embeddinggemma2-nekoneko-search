@@ -1,0 +1,407 @@
+{
+  "schema": "embeddinggemma2-independent-acceptance/v1",
+  "verified_on": "2026-10-10",
+  "status": "accepted",
+  "scope": "Formal retrieval quality and latency outputs for frozen EmbeddingGemma 2 attempt-05, including independent numeric reconciliation.",
+  "candidate": {
+    "attempt_id": "attempt-05-query-threads4",
+    "formal_candidate": true,
+    "model_id": "google/embeddinggemma-2",
+    "model_revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+    "manifest_sha256": "663cf6dc7003a03447808555b68523d02d496eb9d33a1f930fa343d59a9c39af",
+    "raw_sha256": {
+      "dev": "b075bd491c8dd8ccb7ee6b6400ec03b4d7a6e657f27833e7e3a57cc6ff3fe105",
+      "test": "390fba17dcd82f76d0199d6323ce326baf4a80e999abca79a0ae291fd7495f56"
+    },
+    "raw_record_counts": {
+      "dev": 15,
+      "test": 180
+    },
+    "run_result_status": "complete",
+    "raw_validation_status": "pass",
+    "failed_validation_checks": [],
+    "query_torch_threads": 4,
+    "index_sha256": "2675ef297502febc2aaeed260d4f8aa4621d37afcc6e10445aabdbff24c6adda",
+    "index_chunk_count": 63,
+    "query_used_existing_document_vectors": true,
+    "model_loaded_before_first_test_query": true,
+    "index_process_actual_thread_count": "unverified; process readback was not serialized"
+  },
+  "frozen_inputs": {
+    "evaluation_contract_sha256": "fdbcc59d04e75d1d32af0bce7ab23cbb934b687d718d5767f5fba90aea6c632a",
+    "aggregation_contract_sha256": "173743e7aa28519ef383b2cf710aa4790fc630529b8d7a6cfdf1ddb825dcf5a0",
+    "locator_resolution_sha256": "f472ac633b814665f662d5d3b5e7168e1b7070fde169e7dc0ee641c20b70e42c",
+    "gold_sha256": "7dc74dae8c4e903950fbebebaa58347e39b310a6aa6866c97bd30eb7002f5dc5",
+    "temporal_rule": "Only segment-specific source-unit intervals no longer than the annotated gold interval plus 1e-6 seconds contribute to fine coverage; asset hits remain eligible."
+  },
+  "independent_table_reconciliation": {
+    "quality_metrics_csv": {
+      "rows": 120,
+      "value_rows_matched": 120,
+      "denominator_rows_matched": 120,
+      "special_case_rows_matched": 120,
+      "unmatched_rows": 0,
+      "precision_fix_rows_reconciled": 12,
+      "metrics_json_rows_match_csv": true
+    },
+    "modality_metrics_csv": {
+      "rows": 560,
+      "value_denominator_exclusion_rows_matched": 560,
+      "unmatched_rows": 0,
+      "metrics_json_rows_match_csv": true
+    },
+    "latency_summary_csv": {
+      "rows": 2,
+      "rows_matched": 2,
+      "unmatched_rows": 0,
+      "all_calls": {
+        "n": 180,
+        "median_ms": 122.19815,
+        "mean_ms": 130.47727722222223,
+        "p95_nearest_rank_ms": 201.8778,
+        "max_ms": 277.5302,
+        "first_query_ms": 136.2153
+      },
+      "warm_after_first": {
+        "n": 179,
+        "median_ms": 121.9005,
+        "p95_nearest_rank_ms": 213.5695
+      }
+    },
+    "raw_query_outcomes_csv": {
+      "rows": 180,
+      "unique_query_repetitions": 180,
+      "rep1_core_metric_aggregate_comparisons": 128,
+      "mismatches": 0
+    },
+    "precision_correction": {
+      "status": "resolved",
+      "old_discrepancy_rows": 12,
+      "corrected_rows_matching_independent_values": 12,
+      "helper_sha256_matches_receipt": true,
+      "correction_receipt_output_hashes_match": true
+    }
+  },
+  "primary_test_rep1": {
+    "answerable_queries": 57,
+    "asset_hit_at_1": {
+      "value": 0.7543859649122807,
+      "numerator": 43,
+      "denominator": 57
+    },
+    "asset_hit_at_3": {
+      "value": 0.9298245614035088,
+      "numerator": 53,
+      "denominator": 57
+    },
+    "asset_hit_at_5": {
+      "value": 1.0,
+      "numerator": 57,
+      "denominator": 57
+    },
+    "asset_hit_at_10": {
+      "value": 1.0,
+      "numerator": 57,
+      "denominator": 57
+    },
+    "fine_evidence_hit_at_1": {
+      "value": 0.631578947368421,
+      "numerator": 36,
+      "denominator": 57
+    },
+    "fine_evidence_hit_at_3": {
+      "value": 0.7192982456140351,
+      "numerator": 41,
+      "denominator": 57
+    },
+    "fine_evidence_hit_at_5": {
+      "value": 0.7543859649122807,
+      "numerator": 43,
+      "denominator": 57
+    },
+    "fine_evidence_hit_at_10": {
+      "value": 0.8070175438596491,
+      "numerator": 46,
+      "denominator": 57
+    },
+    "complete_evidence_at_5": {
+      "value": 0.7368421052631579,
+      "numerator": 42,
+      "denominator": 57
+    },
+    "asset_mrr_at_10": {
+      "value": 0.8549707602339182,
+      "denominator": 57
+    },
+    "fine_evidence_mrr_at_10": {
+      "value": 0.6898357003620162,
+      "denominator": 57
+    },
+    "by_modality_hit_at_1": {
+      "audio": {
+        "answerable_queries": 9,
+        "asset_hit_at_1": {
+          "value": 0.4444444444444444,
+          "numerator": 4,
+          "denominator": 9
+        },
+        "fine_evidence_hit_at_1": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 9
+        },
+        "complete_evidence_at_1": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 9
+        }
+      },
+      "document": {
+        "answerable_queries": 7,
+        "asset_hit_at_1": {
+          "value": 1.0,
+          "numerator": 7,
+          "denominator": 7
+        },
+        "fine_evidence_hit_at_1": {
+          "value": 0.8571428571428571,
+          "numerator": 6,
+          "denominator": 7
+        },
+        "complete_evidence_at_1": {
+          "value": 0.8571428571428571,
+          "numerator": 6,
+          "denominator": 7
+        }
+      },
+      "mixed": {
+        "answerable_queries": 2,
+        "asset_hit_at_1": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2
+        },
+        "fine_evidence_hit_at_1": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2
+        },
+        "complete_evidence_at_1": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 2
+        }
+      },
+      "pdf": {
+        "answerable_queries": 6,
+        "asset_hit_at_1": {
+          "value": 0.8333333333333334,
+          "numerator": 5,
+          "denominator": 6
+        },
+        "fine_evidence_hit_at_1": {
+          "value": 0.8333333333333334,
+          "numerator": 5,
+          "denominator": 6
+        },
+        "complete_evidence_at_1": {
+          "value": 0.8333333333333334,
+          "numerator": 5,
+          "denominator": 6
+        }
+      },
+      "presentation": {
+        "answerable_queries": 5,
+        "asset_hit_at_1": {
+          "value": 1.0,
+          "numerator": 5,
+          "denominator": 5
+        },
+        "fine_evidence_hit_at_1": {
+          "value": 0.8,
+          "numerator": 4,
+          "denominator": 5
+        },
+        "complete_evidence_at_1": {
+          "value": 0.8,
+          "numerator": 4,
+          "denominator": 5
+        }
+      },
+      "spreadsheet": {
+        "answerable_queries": 8,
+        "asset_hit_at_1": {
+          "value": 0.25,
+          "numerator": 2,
+          "denominator": 8
+        },
+        "fine_evidence_hit_at_1": {
+          "value": 0.125,
+          "numerator": 1,
+          "denominator": 8
+        },
+        "complete_evidence_at_1": {
+          "value": 0.125,
+          "numerator": 1,
+          "denominator": 8
+        }
+      },
+      "video": {
+        "answerable_queries": 20,
+        "asset_hit_at_1": {
+          "value": 0.95,
+          "numerator": 19,
+          "denominator": 20
+        },
+        "fine_evidence_hit_at_1": {
+          "value": 0.95,
+          "numerator": 19,
+          "denominator": 20
+        },
+        "complete_evidence_at_1": {
+          "value": 0.95,
+          "numerator": 19,
+          "denominator": 20
+        }
+      }
+    }
+  },
+  "case_review": {
+    "excel": {
+      "asset_hit_at_1": "2/8 (25%)",
+      "interpretation": "gold-specified Excel source retrieval only; not actual answerability, answer accuracy, or calculation performance",
+      "misses_with_alternative_source_or_calculation_inputs": "5/6",
+      "cases": [
+        "NKB-017",
+        "NKB-018",
+        "NKB-019",
+        "NKB-021",
+        "NKB-024"
+      ],
+      "clear_row_level_source_miss": "NKB-023; D-HR has the general 12,000-yen cap but not the 14,500-yen EXP-102 transaction row needed for the 2,500-yen over-cap answer",
+      "NKB-024_note": "D-HR ranks as the top asset, but its top chunk is the settlement-deadline section, not the daily allowance entry."
+    },
+    "audio_locator_granularity": {
+      "gold_interval_entries": 8,
+      "mapped_chunk_references": 12,
+      "overlong_references": 12,
+      "chunking": "fixed 15-second basis, including merged tail windows",
+      "interpretation": "These references exceed matched gold interval duration, so they add zero fine interval coverage under the frozen cap. Asset hits still count. This is locator granularity, not audio understanding."
+    },
+    "representative_asset_hit1_misses": [
+      {
+        "query_id": "NKB-023",
+        "modality": "spreadsheet",
+        "top_asset": "D-HR",
+        "gold_asset": "X-EXP",
+        "gold_asset_rank": 5,
+        "classification": "wrong source for the transaction-level amount"
+      },
+      {
+        "query_id": "NKB-038",
+        "modality": "audio",
+        "top_asset": "S-PLAN",
+        "gold_asset": "A-LOG",
+        "gold_asset_rank": 2,
+        "classification": "top result concerns Oct 21 planning, while the query asks the Oct 16 13:00 shipping cutoff"
+      },
+      {
+        "query_id": "NKB-051",
+        "modality": "video",
+        "top_asset": "A-LOG",
+        "gold_asset": "V-W3",
+        "gold_asset_rank": 2,
+        "classification": "top result is audio; existing frozen 12-18s frame evidence shows shelf C-03 and red hold tag"
+      }
+    ],
+    "old_policy_confusion": "No current P-QA gold test has P-OLD in top 5. P-OLD is top 1 for NKB-014/NKB-016, both explicitly old-policy questions.",
+    "unanswerable_test_rep1": {
+      "count": 3,
+      "ranked_results_returned": true,
+      "top_results": [
+        {
+          "query_id": "NKB-057",
+          "top_asset": "A-QA",
+          "top_score": 0.7004153728485107
+        },
+        {
+          "query_id": "NKB-058",
+          "top_asset": "A-QA",
+          "top_score": 0.6782931089401245
+        },
+        {
+          "query_id": "NKB-059",
+          "top_asset": "D-HR",
+          "top_score": 0.7685582637786865
+        }
+      ],
+      "rejection_threshold_or_abstention_accuracy": "not evaluated"
+    },
+    "score_diagnostics": "unknown_scores.csv has 0 missing/invalid/non-finite rank scores; this does not mean there were 0 unanswerable queries."
+  },
+  "interpretation_limits": [
+    "The corpus is a small synthetic 14-asset benchmark. Results do not establish general embedding-model performance.",
+    "This evaluates retrieval rankings and source-locator coverage, not generated-answer correctness, ASR, or new visual QA.",
+    "The 180-call query latency uses a model loaded before the first call and 63 existing document vectors. It excludes cold startup and full ingestion/re-embedding.",
+    "Query-process PyTorch thread readback is 4. Index source code configured 4 threads, but the index process readback was not serialized, so its actual thread count remains unverified.",
+    "The three unanswerable test questions received ranked candidates; abstention quality was not tested."
+  ],
+  "artifacts": {
+    "accuracy-speed-run/verification/independent-reaggregation.json": {
+      "sha256": "5b22284e16d4dba08977095a159a86ae1d259405fc9325b03fca598988382830",
+      "bytes": 423501
+    },
+    "accuracy-speed-run/verification/independent-test-primary-metrics.csv": {
+      "sha256": "a84f9323e0cf2995fdaefec960dadb8bd03b29074de25fccc1d3518698ec4ac4",
+      "bytes": 2112
+    },
+    "accuracy-speed-run/verification/independent-test-modality-metrics.csv": {
+      "sha256": "4e136952d575405c8699ee138284bcfc05924e7713e429b05fbdee448c7676c2",
+      "bytes": 11606
+    },
+    "accuracy-speed-run/verification/independent-test-latency.csv": {
+      "sha256": "ed00fbb1ef42ed2a8defc8de87bf40e23bd17dd5640ef19cc00980b6a7719b8d",
+      "bytes": 774
+    },
+    "accuracy-speed-run/verification/attempt-05-test-query-outcomes-latency.csv": {
+      "sha256": "dcd5022e8c1a6a037de6ed6b49bd91574a6bf5cdcc22e940a9be10bdc20bc950",
+      "bytes": 52706
+    },
+    "accuracy-speed-run/verification/INDEPENDENT_REPORT.md": {
+      "sha256": "b0a54aecb90db027af9416270d9554555e56e0cada3fc0a8e635a59cdeaad5ed",
+      "bytes": 4989
+    },
+    "accuracy-speed-run/verification/fine-evidence-precision-discrepancy.json": {
+      "sha256": "8a6cc8275c451c9b4840469833ed29fbc82aa014cc811bebb3dcee8dd5315d27",
+      "bytes": 8475
+    },
+    "accuracy-speed-run/analysis/summarize.py": {
+      "sha256": "b79b6b96fd1f7fa598d6e4841084e1400675f5c4ea93c0ed6c91a751c619d119",
+      "bytes": 99023
+    },
+    "accuracy-speed-run/analysis/quality_metrics.csv": {
+      "sha256": "78d3abe699f8a8e2d0d01908a2438be13b089dce7d997a13203f72bb3b08bf86",
+      "bytes": 11687
+    },
+    "accuracy-speed-run/analysis/modality_metrics.csv": {
+      "sha256": "c60c4a97f4cb399b598049e9021e00e49f8605adc3b91b55248588298457c931",
+      "bytes": 27233
+    },
+    "accuracy-speed-run/analysis/latency_summary.csv": {
+      "sha256": "e08ebf5be473aa1dce0fd70a0265c42de37324387c27f36c2a8f0d14fc633018",
+      "bytes": 282
+    },
+    "accuracy-speed-run/analysis/metrics.json": {
+      "sha256": "266f76b33a30014c56079b47cf575af1e8f0ec70ebb76018b2edbb4e6e367af4",
+      "bytes": 924919
+    },
+    "accuracy-speed-run/analysis/REPORT.md": {
+      "sha256": "3e6a76077a962935d9b9395d0fc0b77efeb888523665bdc90d4abd10fb950bed",
+      "bytes": 21213
+    },
+    "accuracy-speed-run/analysis/implementation-correction-receipt.json": {
+      "sha256": "fa94b8e9eb0611df447b8f388ea34d490d3ad0b5f1cb598bf857f4645841134d",
+      "bytes": 4084
+    }
+  }
+}
