@@ -1,0 +1,11 @@
+FROM docker.io/library/python:3.12-slim
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 HF_HOME=/cache TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=4
+WORKDIR /app
+RUN pip install --no-cache-dir torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir torchvision==0.29.1 --index-url https://download.pytorch.org/whl/cpu
+COPY app.py evaluate.py ./
+COPY data ./data
+COPY index.html ./
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]

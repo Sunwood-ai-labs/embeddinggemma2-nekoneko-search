@@ -1,0 +1,611 @@
+{
+  "schema": "embeddinggemma2-locked-run-manifest/v1",
+  "status": "locked_before_model_evaluation",
+  "freeze_scope": "benchmark retrieval run; the separately recorded native smoke is non-scoring",
+  "frozen_at_utc": "2026-10-10T04:16:47Z",
+  "frozen_at_local_date": "2026-10-10",
+  "contracts": {
+    "evaluation": {
+      "path": "accuracy-speed-run/verification/evaluation-contract.json",
+      "sha256": "fdbcc59d04e75d1d32af0bce7ab23cbb934b687d718d5767f5fba90aea6c632a",
+      "bytes": 19443,
+      "schema": "embeddinggemma2-accuracy-speed-contract/v1"
+    },
+    "research": {
+      "path": "accuracy-speed-run/research/contract.json",
+      "sha256": "f7103b602eab6f840aa45cba11aea56412b33a1fb30e57d0cfc0eb1cb685d1fb",
+      "bytes": 6419,
+      "schema": "embeddinggemma2-native-search-contract/v1"
+    },
+    "aggregation": {
+      "path": "accuracy-speed-run/analysis/aggregation-contract.json",
+      "sha256": "173743e7aa28519ef383b2cf710aa4790fc630529b8d7a6cfdf1ddb825dcf5a0",
+      "bytes": 6386,
+      "schema": "embeddinggemma2-aggregation-contract/v1",
+      "status": "prepared-not-run"
+    }
+  },
+  "inputs": {
+    "source_manifest": {
+      "path": "multimodal-benchmark/manifest.json",
+      "sha256": "851a7129bc099bc67f2b0f3705a964825facebbdcb8214e78418ad62ad09f27b",
+      "bytes": 4632,
+      "expected_sha256": "851a7129bc099bc67f2b0f3705a964825facebbdcb8214e78418ad62ad09f27b"
+    },
+    "allowlist_root": "multimodal-benchmark/inputs",
+    "input_count": 14,
+    "assets": [
+      {
+        "asset_id": "A-LOG",
+        "path": "inputs/audio/warehouse_announcement.wav",
+        "bytes": 2646128,
+        "sha256": "277a6e0c4542fbeebe702dc2e308e68cc7191d23975bd92561dadee779222508"
+      },
+      {
+        "asset_id": "A-QA",
+        "path": "inputs/audio/quality_meeting.wav",
+        "bytes": 2688948,
+        "sha256": "4f34d64481b17b0d7ac28da9f6695edf43f02e0fb16dfd8b755463626bf6471e"
+      },
+      {
+        "asset_id": "D-HR",
+        "path": "inputs/documents/hr_policy.docx",
+        "bytes": 39455,
+        "sha256": "7cc5607558db096ce00f5dc59c5ae8be074e0447e9435c6e4380b4a15b73cc17"
+      },
+      {
+        "asset_id": "D-IT",
+        "path": "inputs/documents/security_guide.docx",
+        "bytes": 38944,
+        "sha256": "680a17750cd0d4cf7034c9627b622f150194acedb48e0d442cc50e2efb437dba"
+      },
+      {
+        "asset_id": "P-OLD",
+        "path": "inputs/documents/archived_remote_2025.pdf",
+        "bytes": 3101,
+        "sha256": "a2704fafdec01d4bcbca9e48f8ad7e55ff854c0a7511a5212602789c8b7904ed"
+      },
+      {
+        "asset_id": "P-QA",
+        "path": "inputs/documents/quality_notice.pdf",
+        "bytes": 4616,
+        "sha256": "a9229dc17a48b6221b0e9615631cbb6a13c767f54c35fa405e57fa67c3a1b52a"
+      },
+      {
+        "asset_id": "S-PLAN",
+        "path": "inputs/presentations/q4_release_plan.pptx",
+        "bytes": 34554,
+        "sha256": "8279a232214640b635e5a3f3126b7d3750b76b8394e18c6c1a0c72a2e178a46e"
+      },
+      {
+        "asset_id": "V-C1",
+        "path": "inputs/video/c1_update.mp4",
+        "bytes": 892567,
+        "sha256": "613d72ea733eeb06b800e7c00b103c7f98b266a4c934a25caf92806ecc661241"
+      },
+      {
+        "asset_id": "V-F2",
+        "path": "inputs/video/f2_inspection.mp4",
+        "bytes": 377688,
+        "sha256": "6a769269781ac8e987a9424657f37f92df6aa946027db27208f30a065c4b156c"
+      },
+      {
+        "asset_id": "V-SAFE",
+        "path": "inputs/video/warehouse_safety.mp4",
+        "bytes": 1019243,
+        "sha256": "1f7c271ff5e11167a30fc32f31374d7d0ad4695a2687bbac051f0bb838eef696"
+      },
+      {
+        "asset_id": "V-W3",
+        "path": "inputs/video/w3_packing.mp4",
+        "bytes": 416527,
+        "sha256": "cd002332a7139f81697a6d27fef5827f3c480c565b1d60546d310c41c27a5581"
+      },
+      {
+        "asset_id": "V-W3-M",
+        "path": "inputs/video/w3_maintenance.mp4",
+        "bytes": 966387,
+        "sha256": "1ebbcabb09cd9bec7ed8f4b7986544c3e875c612e6bce07190ccbbac69d37c76"
+      },
+      {
+        "asset_id": "X-EXP",
+        "path": "inputs/spreadsheets/expense_examples.xlsx",
+        "bytes": 5038,
+        "sha256": "d5d70b7e786b04a42c3c975c1ca8f3c70c996df5d2549feeae4804d6a3ec74f5"
+      },
+      {
+        "asset_id": "X-LOT",
+        "path": "inputs/spreadsheets/production_202609.xlsx",
+        "bytes": 4641,
+        "sha256": "d35c0e28a33f5242515ce26555c1833b4fafba39aa00f084127766590cc604fa"
+      }
+    ],
+    "gold": {
+      "path": "multimodal-benchmark/benchmark/gold.json",
+      "sha256_from_evaluation_contract": "7dc74dae8c4e903950fbebebaa58347e39b310a6aa6866c97bd30eb7002f5dc5",
+      "content_read_by_freezer": false
+    },
+    "queries": {
+      "dev": {
+        "path": "multimodal-benchmark/benchmark/queries-dev.jsonl",
+        "sha256_from_evaluation_contract": "93c716195daa7cee0ae4d61d5ec2efa9edbd9ebb991840850833c4b9012cd4f7",
+        "content_read_by_freezer": false
+      },
+      "test": {
+        "path": "multimodal-benchmark/benchmark/queries-test.jsonl",
+        "sha256_from_evaluation_contract": "9659da6bf2d49c4dfcc6525d0e57091c9ef32bdc909485a0a3312cb1f8e49e71",
+        "content_read_by_freezer": false
+      }
+    }
+  },
+  "index": {
+    "path": "accuracy-speed-run/index.jsonl",
+    "sha256": "2675ef297502febc2aaeed260d4f8aa4621d37afcc6e10445aabdbff24c6adda",
+    "bytes": 33077,
+    "chunk_count": 63,
+    "chunk_counts_by_modality": {
+      "audio": 8,
+      "document": 11,
+      "pdf": 3,
+      "presentation": 6,
+      "spreadsheet": 15,
+      "video": 20
+    },
+    "source_path_allowlist_match": true,
+    "derived_media_segments": [
+      {
+        "path": "derived/audio/A-QA/segment-01.wav",
+        "asset_id": "A-QA",
+        "bytes": 480078,
+        "sha256": "4a834982ec43064fb65c72d544ceb09dff379257f6a153e485d7211b005519ba"
+      },
+      {
+        "path": "derived/audio/A-QA/segment-02.wav",
+        "asset_id": "A-QA",
+        "bytes": 480078,
+        "sha256": "1d5420809173ff3ae8e849557370a946771ef400338f0f02cb16ad8e7970efaf"
+      },
+      {
+        "path": "derived/audio/A-QA/segment-03.wav",
+        "asset_id": "A-QA",
+        "bytes": 480078,
+        "sha256": "c57c45aed5c6b5893372803624636014a8db08676908c5bcbb37099339463f24"
+      },
+      {
+        "path": "derived/audio/A-QA/segment-04.wav",
+        "asset_id": "A-QA",
+        "bytes": 511210,
+        "sha256": "d8d3326e90a925d4534c68d08427f8c495ea4c0c0dade11f744d6863a3bb82e2"
+      },
+      {
+        "path": "derived/audio/A-LOG/segment-01.wav",
+        "asset_id": "A-LOG",
+        "bytes": 480078,
+        "sha256": "8a7c791113a44f726a956154f9f4a6284e4b2d5c0ffd11b8cd2afca881168095"
+      },
+      {
+        "path": "derived/audio/A-LOG/segment-02.wav",
+        "asset_id": "A-LOG",
+        "bytes": 480078,
+        "sha256": "42e1d5e1848b205cb30103a8ab831e776e7c6d0793f177f72c383d9540e441bf"
+      },
+      {
+        "path": "derived/audio/A-LOG/segment-03.wav",
+        "asset_id": "A-LOG",
+        "bytes": 480078,
+        "sha256": "1c928050e1c300f44c929346f80173e3628c8e2e2906b775e8455393b93c1c0e"
+      },
+      {
+        "path": "derived/audio/A-LOG/segment-04.wav",
+        "asset_id": "A-LOG",
+        "bytes": 480138,
+        "sha256": "fa4d9969117086960f1b5735ace713848c980e38ad07b254862533791cc97c78"
+      },
+      {
+        "path": "derived/video/V-F2/segment-01.mp4",
+        "asset_id": "V-F2",
+        "bytes": 594764,
+        "sha256": "7d5a4a91c97e04e8c15c97fd597d93b2938c17dcaf59dcf634040fffcf00a1b7"
+      },
+      {
+        "path": "derived/video/V-F2/segment-02.mp4",
+        "asset_id": "V-F2",
+        "bytes": 644146,
+        "sha256": "93c11de469b01539b9a2c276feeb6399d35a39dbd5f2aba55dc34a8890de29ac"
+      },
+      {
+        "path": "derived/video/V-F2/segment-03.mp4",
+        "asset_id": "V-F2",
+        "bytes": 603078,
+        "sha256": "cbb68abe8c4c174c50bac3b91489473e3d1bfdab5c64627f30ecd19ce2ea4769"
+      },
+      {
+        "path": "derived/video/V-F2/segment-04.mp4",
+        "asset_id": "V-F2",
+        "bytes": 640857,
+        "sha256": "f54b6edc79eaacdbfb5ba762e6cfaa7fd044322d1bf9f82c0c3b304d19fb4187"
+      },
+      {
+        "path": "derived/video/V-W3/segment-01.mp4",
+        "asset_id": "V-W3",
+        "bytes": 597831,
+        "sha256": "47eecfff7e291000faaa0b7524b2340119ebfdba37549052bc145159fa9aa2ae"
+      },
+      {
+        "path": "derived/video/V-W3/segment-02.mp4",
+        "asset_id": "V-W3",
+        "bytes": 660380,
+        "sha256": "b80728dffaa32c3077edfcba2011292edfa9b2387431e3a9ba1deeac0a95ac75"
+      },
+      {
+        "path": "derived/video/V-W3/segment-03.mp4",
+        "asset_id": "V-W3",
+        "bytes": 599201,
+        "sha256": "039be9408f961ff881e4fe1663c11a340fbc98e7dfdc510d52f84b35ab8e6e4d"
+      },
+      {
+        "path": "derived/video/V-W3/segment-04.mp4",
+        "asset_id": "V-W3",
+        "bytes": 625616,
+        "sha256": "9ee610c242b26e453d50a0e80fe563421da992e01ffb1fc45ef8f3bcba9783f6"
+      },
+      {
+        "path": "derived/video/V-C1/segment-01.mp4",
+        "asset_id": "V-C1",
+        "bytes": 831666,
+        "sha256": "321f5f6930ff73aacfa2d72ce452811547256945d2ccf908670e490d632dd4a9"
+      },
+      {
+        "path": "derived/video/V-C1/segment-02.mp4",
+        "asset_id": "V-C1",
+        "bytes": 909762,
+        "sha256": "1ce3030f1cef3a71c01a7398a88394a8a5d49b97054a77a007b3ce75cc8f2cce"
+      },
+      {
+        "path": "derived/video/V-C1/segment-03.mp4",
+        "asset_id": "V-C1",
+        "bytes": 883438,
+        "sha256": "4116e993035ae51e668b97166914b27bdbd34fd4927c10f6fdbb83a327869c51"
+      },
+      {
+        "path": "derived/video/V-C1/segment-04.mp4",
+        "asset_id": "V-C1",
+        "bytes": 852035,
+        "sha256": "76c79507ce65401eb28064c78ecf4be2c2e69f10cfbdd70bb8647dde7e9da7e0"
+      },
+      {
+        "path": "derived/video/V-SAFE/segment-01.mp4",
+        "asset_id": "V-SAFE",
+        "bytes": 929533,
+        "sha256": "bfcb7dc199459de77441034848d24e2c64fc406a5342b45be973e8059877d004"
+      },
+      {
+        "path": "derived/video/V-SAFE/segment-02.mp4",
+        "asset_id": "V-SAFE",
+        "bytes": 1011477,
+        "sha256": "e9fa700ea61d951b03199b5f19eb6ab8ffcf78889b9068ffbbf44ac096a84ee2"
+      },
+      {
+        "path": "derived/video/V-SAFE/segment-03.mp4",
+        "asset_id": "V-SAFE",
+        "bytes": 978660,
+        "sha256": "066619e8862ba36a1d6d8e8d6dbe16a29aa45036141f1050fdaebee16018d723"
+      },
+      {
+        "path": "derived/video/V-SAFE/segment-04.mp4",
+        "asset_id": "V-SAFE",
+        "bytes": 1161070,
+        "sha256": "2dbdb3851cc118ac3ce616b8888aadcf0e54c73864a09086192e4e79e5b34535"
+      },
+      {
+        "path": "derived/video/V-W3-M/segment-01.mp4",
+        "asset_id": "V-W3-M",
+        "bytes": 1009651,
+        "sha256": "dabe5fd9d3386d60176947245a90be766fdb12cf78546b75549cd98629671f16"
+      },
+      {
+        "path": "derived/video/V-W3-M/segment-02.mp4",
+        "asset_id": "V-W3-M",
+        "bytes": 934685,
+        "sha256": "1f7a136e20fc034173d8fca3a269606abef88210c888babae24169bb651e5310"
+      },
+      {
+        "path": "derived/video/V-W3-M/segment-03.mp4",
+        "asset_id": "V-W3-M",
+        "bytes": 954240,
+        "sha256": "4ab670c3a53dded029f12894039b7e1e446cd4148d883efc29d1cff749dce127"
+      },
+      {
+        "path": "derived/video/V-W3-M/segment-04.mp4",
+        "asset_id": "V-W3-M",
+        "bytes": 878638,
+        "sha256": "6f86380706dc89906e5c66ff304db607e6359d80f2c48d0bedf85cb195ced142"
+      }
+    ],
+    "extraction_seconds": 20.084474
+  },
+  "model": {
+    "id": "google/embeddinggemma-2",
+    "revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+    "snapshot_path": "/cache/hub/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b",
+    "architecture": "EmbeddingGemma2Model",
+    "parameter_count": 744371488,
+    "output_dimensions": 768,
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "torch_threads": 4,
+    "all_native_modalities_smoke_passed": true,
+    "native_smoke_file": {
+      "path": "accuracy-speed-run/smoke/smoke-report.json",
+      "sha256": "ae4fff6e8515cf1859247a386d20955743c319417a83e877303749fd84274130",
+      "bytes": 4166
+    },
+    "native_smoke_load_seconds": 12.488799,
+    "native_smoke_rss_after_smokes_bytes": 3930103808,
+    "native_smoke_rss_label_note": "Point-in-time process RSS sampled after smoke encodes; this is not process peak RSS. The cgroup peak is recorded separately.",
+    "native_smoke_cgroup_peak_bytes": 5420773376
+  },
+  "runtime": {
+    "path": "accuracy-speed-run/container-runtime.json",
+    "sha256": "d581e7046d0551c90c3eb394dd028696e56a291a1bb629e5f95438020c1bf662",
+    "bytes": 1520,
+    "packages": {
+      "torch": "2.14.1+cpu",
+      "torchvision": "0.29.1+cpu",
+      "transformers": "5.19.0",
+      "sentence-transformers": "6.1.0",
+      "numpy": "2.5.3",
+      "Pillow": "12.3.0",
+      "fastapi": "0.143.0",
+      "uvicorn": "0.54.0",
+      "soundfile": "0.14.0",
+      "PyMuPDF": "1.26.7",
+      "python-docx": "1.2.0",
+      "openpyxl": "3.1.5",
+      "python-pptx": "1.0.2",
+      "av": "14.0.1",
+      "psutil": "7.1.3",
+      "librosa": "0.11.0",
+      "torchcodec": "0.16.0+cpu",
+      "scipy": "1.18.1",
+      "numba": "0.68.0",
+      "llvmlite": "0.50.0"
+    },
+    "ffmpeg_version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe_version": "ffprobe version 7.1.5-0+deb13u1 Copyright (c) 2007-2026 the FFmpeg developers",
+    "cpu_model": null,
+    "logical_cpus_visible": 16,
+    "process_affinity_cpu_count": 16,
+    "container_cpu_limit_cores": 4,
+    "container_memory_limit_bytes": "8589934592",
+    "network_mode": "none",
+    "cgroup_cpu_max": "400000 100000",
+    "torch_threads_from_same_image_runtime_probe": 4,
+    "index_runner_thread_setter": "torch.set_num_threads(TORCH_THREADS) before model load; TORCH_THREADS=4 in compose environment",
+    "index_process_thread_readback_serialized": false
+  },
+  "embedding_protocol": {
+    "query_method": "encode_query",
+    "query_prompt_name": "QuestionAnswering",
+    "query_prompt_text": "task: question answering | query: ",
+    "text_document_method": "encode_document",
+    "text_document_prompt_template": "title: {title} | text: {body}",
+    "media_document_prompt": "For image/audio/video media-only document inputs, explicitly override text prompt with prompt=\"\".",
+    "audio": {
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "segment_seconds": 15.0,
+      "tail_rule": "if the final residue is shorter than 1 second, extend the preceding final interval to the source end; never emit a sub-second audio chunk"
+    },
+    "video": {
+      "fps": 1,
+      "max_frames": 32,
+      "overflow_strategy": "uniform",
+      "add_timestamps": false
+    },
+    "batch_size": 1,
+    "concurrency": "serial",
+    "normalization": true,
+    "vector_dimension": 768,
+    "similarity": "cosine"
+  },
+  "evaluation_protocol": {
+    "population": {
+      "total": 75,
+      "answerable": 71,
+      "unanswerable": 4,
+      "dev_test": {
+        "dev": {
+          "total": 15,
+          "answerable": 14,
+          "unanswerable": 1,
+          "modality": {
+            "audio": {
+              "total": 2,
+              "answerable": 2,
+              "unanswerable": 0
+            },
+            "document": {
+              "total": 1,
+              "answerable": 1,
+              "unanswerable": 0
+            },
+            "mixed": {
+              "total": 1,
+              "answerable": 1,
+              "unanswerable": 0
+            },
+            "none": {
+              "total": 1,
+              "answerable": 0,
+              "unanswerable": 1
+            },
+            "pdf": {
+              "total": 2,
+              "answerable": 2,
+              "unanswerable": 0
+            },
+            "presentation": {
+              "total": 1,
+              "answerable": 1,
+              "unanswerable": 0
+            },
+            "spreadsheet": {
+              "total": 2,
+              "answerable": 2,
+              "unanswerable": 0
+            },
+            "video": {
+              "total": 5,
+              "answerable": 5,
+              "unanswerable": 0
+            }
+          },
+          "query_sha256": "93c716195daa7cee0ae4d61d5ec2efa9edbd9ebb991840850833c4b9012cd4f7"
+        },
+        "test": {
+          "total": 60,
+          "answerable": 57,
+          "unanswerable": 3,
+          "modality": {
+            "audio": {
+              "total": 9,
+              "answerable": 9,
+              "unanswerable": 0
+            },
+            "document": {
+              "total": 7,
+              "answerable": 7,
+              "unanswerable": 0
+            },
+            "mixed": {
+              "total": 2,
+              "answerable": 2,
+              "unanswerable": 0
+            },
+            "none": {
+              "total": 3,
+              "answerable": 0,
+              "unanswerable": 3
+            },
+            "pdf": {
+              "total": 6,
+              "answerable": 6,
+              "unanswerable": 0
+            },
+            "presentation": {
+              "total": 5,
+              "answerable": 5,
+              "unanswerable": 0
+            },
+            "spreadsheet": {
+              "total": 8,
+              "answerable": 8,
+              "unanswerable": 0
+            },
+            "video": {
+              "total": 20,
+              "answerable": 20,
+              "unanswerable": 0
+            }
+          },
+          "query_sha256": "9659da6bf2d49c4dfcc6525d0e57091c9ef32bdc909485a0a3312cb1f8e49e71"
+        }
+      },
+      "modality_total": {
+        "audio": 11,
+        "document": 8,
+        "mixed": 3,
+        "none": 4,
+        "pdf": 8,
+        "presentation": 6,
+        "spreadsheet": 10,
+        "video": 25
+      },
+      "task_total": {
+        "abstention": 4,
+        "calculation": 11,
+        "causality": 2,
+        "cross_asset": 3,
+        "lookup": 47,
+        "temporal_exception": 1,
+        "visual": 7
+      },
+      "answerable_evidence_entries_by_question": {
+        "1": 67,
+        "2": 3,
+        "4": 1
+      },
+      "multi_evidence_ids": [
+        "NKB-053",
+        "NKB-055",
+        "NKB-056",
+        "NKB-070"
+      ],
+      "unanswerable_ids": [
+        {
+          "id": "NKB-057",
+          "evidence_entries": 0
+        },
+        {
+          "id": "NKB-058",
+          "evidence_entries": 0
+        },
+        {
+          "id": "NKB-059",
+          "evidence_entries": 0
+        },
+        {
+          "id": "NKB-060",
+          "evidence_entries": 1
+        }
+      ]
+    },
+    "k": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "ranking_units": {
+      "asset_ranking": "One item per asset_id, deduplicated to the highest-scoring result; k counts distinct assets.",
+      "chunk_ranking": "One item per indexed source unit. Deduplicate identical normalized path+locator, keeping its highest-scoring result; distinct locators in one asset remain distinct; k counts distinct source units.",
+      "fine_evidence_basis": "Structural only: asset_id/path plus the source locator and its coverage of gold evidence[]. Do not require text content or literal required_fact matches for the primary fine metric. An asset title/id with no specific locator is asset-level only."
+    },
+    "locator_coverage": {
+      "docx_pdf": "Binary structural coverage: match the annotated page and, when gold specifies a heading/section, that same heading/section.",
+      "spreadsheet": "Expand each gold and result cell/range locator to its complete set of cell coordinates. For each evidence entry, compute covered_gold_cells / all_gold_cells using the union of top-k source-unit cells. Mere intersection is partial coverage, not a complete hit.",
+      "presentation": "Binary structural coverage: match the annotated slide number.",
+      "audio_video": "For each gold time interval, only segment-specific returned source-unit intervals no longer than the annotated gold interval may contribute. Compute the union length inside the gold interval divided by its full annotated duration. Mere overlap is partial coverage; a file/title-only result or an unsegmented whole-file envelope broader than the gold segment contributes zero fine coverage and remains asset-level only.",
+      "entry_complete": "An evidence[] entry is complete only at 100% structural coverage (floating-time comparison tolerance 1e-6 seconds). A query is complete only when every evidence[] entry is complete; NKB-070 requires four separate V-SAFE intervals.",
+      "query_coverage": "Average entry coverage within each query, then macro-average queries, so multi-evidence queries do not receive extra query weight."
+    },
+    "primary_metrics": {
+      "asset_hit_at_k": "Fraction of answerable test queries with any gold asset among top k distinct assets.",
+      "asset_mrr_at_10": "Macro-average reciprocal rank of the first gold asset in top 10; zero if absent.",
+      "fine_evidence_hit_at_k": "Fraction of answerable test queries where the top-k chunk union fully covers at least one gold evidence[] entry.",
+      "fine_evidence_mrr_at_10": "Macro-average reciprocal rank of the first prefix of distinct chunks whose union completes any gold evidence[] entry; zero if none completes by rank 10.",
+      "fine_evidence_coverage_at_k": "Macro-average query coverage using the locator_coverage rules above.",
+      "complete_evidence_at_k": "Fraction of answerable test queries where every gold evidence[] entry reaches 100% locator coverage in top k."
+    },
+    "test_repetitions": 3,
+    "test_calls_expected": 180,
+    "dev_repetitions": 1,
+    "dev_calls_expected": 15,
+    "primary_test_repetition": 1,
+    "unanswerable_threshold": null,
+    "latency_boundary": "CLI query path end-to-end: from question text entering query encoding through cosine scoring/ranking output; network time excluded. Keep model loading, input extraction, embedding/index build, and index write as separate timings.",
+    "first_query_rule": "Record the first chronological query call separately. Also report timing summaries across all 180 calls and warmed-only remaining 179 calls. If weights/model were already loaded for document indexing or smoke checks, call this the first query, not a cold model run.",
+    "test_order_rule": "Canonical order within each frozen query file; repetition 1, then repetition 2, then repetition 3.",
+    "retry_policy": "No retries or silent omissions; preserve error records."
+  },
+  "freeze_checks": {
+    "source_manifest_matches_contract": true,
+    "all_input_assets_match_contract_and_preparation": true,
+    "index_sha_matches_preparation": true,
+    "index_uses_only_allowlisted_sources": true,
+    "no_gold_or_query_content_read": true,
+    "runtime_matches_cpu_float32_caps": true,
+    "native_smoke_passed_pre_run": true
+  }
+}

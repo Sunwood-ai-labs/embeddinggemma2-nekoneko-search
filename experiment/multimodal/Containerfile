@@ -1,0 +1,23 @@
+FROM localhost/nekoneko-embeddinggemma2:20261010
+
+ENV OMP_NUM_THREADS=4 \
+    OPENBLAS_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1 \
+    NUMEXPR_NUM_THREADS=1 \
+    TORCH_NUM_THREADS=4 \
+    HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1 \
+    TOKENIZERS_PARALLELISM=false
+
+WORKDIR /benchmark
+
+USER root
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt /tmp/accuracy-speed-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/accuracy-speed-requirements.txt
+RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torchcodec==0.16.0
+
+CMD ["python", "-u", "/benchmark/run/smoke.py"]

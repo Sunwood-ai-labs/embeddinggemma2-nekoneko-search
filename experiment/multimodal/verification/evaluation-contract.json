@@ -1,0 +1,410 @@
+{
+  "schema": "embeddinggemma2-accuracy-speed-contract/v1",
+  "purpose": "EmbeddingGemma 2の検索精度・根拠取得・速度の実測。小規模な合成データの検索結果として評価し、生成回答や一般性能と混同しない。",
+  "model": {
+    "id": "google/embeddinggemma-2",
+    "revision": "914f7f89142e33e77833254d9c9b90c3cef7303b"
+  },
+  "run_guardrails": {
+    "windows_client": "PowerShell",
+    "podman_connection": "embeddinggemma2-lab-root を明示",
+    "preserve": "既存 localhost:8762 のCompose検索と nekoneko-embeddinggemma2_search_1。他のPodman接続・default・machine・containerは変更しない。"
+  },
+  "frozen_inputs": {
+    "gold_path": "multimodal-benchmark/benchmark/gold.json",
+    "gold_sha256": "7dc74dae8c4e903950fbebebaa58347e39b310a6aa6866c97bd30eb7002f5dc5",
+    "manifest_sha256": "851a7129bc099bc67f2b0f3705a964825facebbdcb8214e78418ad62ad09f27b",
+    "queries": {
+      "dev": {
+        "path": "multimodal-benchmark/benchmark/queries-dev.jsonl",
+        "sha256": "93c716195daa7cee0ae4d61d5ec2efa9edbd9ebb991840850833c4b9012cd4f7"
+      },
+      "test": {
+        "path": "multimodal-benchmark/benchmark/queries-test.jsonl",
+        "sha256": "9659da6bf2d49c4dfcc6525d0e57091c9ef32bdc909485a0a3312cb1f8e49e71"
+      }
+    },
+    "assets": [
+      {
+        "asset_id": "A-QA",
+        "path": "inputs/audio/quality_meeting.wav",
+        "sha256": "4f34d64481b17b0d7ac28da9f6695edf43f02e0fb16dfd8b755463626bf6471e"
+      },
+      {
+        "asset_id": "A-LOG",
+        "path": "inputs/audio/warehouse_announcement.wav",
+        "sha256": "277a6e0c4542fbeebe702dc2e308e68cc7191d23975bd92561dadee779222508"
+      },
+      {
+        "asset_id": "P-OLD",
+        "path": "inputs/documents/archived_remote_2025.pdf",
+        "sha256": "a2704fafdec01d4bcbca9e48f8ad7e55ff854c0a7511a5212602789c8b7904ed"
+      },
+      {
+        "asset_id": "D-HR",
+        "path": "inputs/documents/hr_policy.docx",
+        "sha256": "7cc5607558db096ce00f5dc59c5ae8be074e0447e9435c6e4380b4a15b73cc17"
+      },
+      {
+        "asset_id": "P-QA",
+        "path": "inputs/documents/quality_notice.pdf",
+        "sha256": "a9229dc17a48b6221b0e9615631cbb6a13c767f54c35fa405e57fa67c3a1b52a"
+      },
+      {
+        "asset_id": "D-IT",
+        "path": "inputs/documents/security_guide.docx",
+        "sha256": "680a17750cd0d4cf7034c9627b622f150194acedb48e0d442cc50e2efb437dba"
+      },
+      {
+        "asset_id": "S-PLAN",
+        "path": "inputs/presentations/q4_release_plan.pptx",
+        "sha256": "8279a232214640b635e5a3f3126b7d3750b76b8394e18c6c1a0c72a2e178a46e"
+      },
+      {
+        "asset_id": "X-EXP",
+        "path": "inputs/spreadsheets/expense_examples.xlsx",
+        "sha256": "d5d70b7e786b04a42c3c975c1ca8f3c70c996df5d2549feeae4804d6a3ec74f5"
+      },
+      {
+        "asset_id": "X-LOT",
+        "path": "inputs/spreadsheets/production_202609.xlsx",
+        "sha256": "d35c0e28a33f5242515ce26555c1833b4fafba39aa00f084127766590cc604fa"
+      },
+      {
+        "asset_id": "V-C1",
+        "path": "inputs/video/c1_update.mp4",
+        "sha256": "613d72ea733eeb06b800e7c00b103c7f98b266a4c934a25caf92806ecc661241"
+      },
+      {
+        "asset_id": "V-F2",
+        "path": "inputs/video/f2_inspection.mp4",
+        "sha256": "6a769269781ac8e987a9424657f37f92df6aa946027db27208f30a065c4b156c"
+      },
+      {
+        "asset_id": "V-W3-M",
+        "path": "inputs/video/w3_maintenance.mp4",
+        "sha256": "1ebbcabb09cd9bec7ed8f4b7986544c3e875c612e6bce07190ccbbac69d37c76"
+      },
+      {
+        "asset_id": "V-W3",
+        "path": "inputs/video/w3_packing.mp4",
+        "sha256": "cd002332a7139f81697a6d27fef5827f3c480c565b1d60546d310c41c27a5581"
+      },
+      {
+        "asset_id": "V-SAFE",
+        "path": "inputs/video/warehouse_safety.mp4",
+        "sha256": "1f7c271ff5e11167a30fc32f31374d7d0ad4695a2687bbac051f0bb838eef696"
+      }
+    ],
+    "checks": {
+      "input_count": 14,
+      "all_14_match_manifest_size_and_hash": true,
+      "question_id_split_text_match_gold": true,
+      "all_gold_evidence_paths_in_inputs": true
+    }
+  },
+  "population": {
+    "total": 75,
+    "answerable": 71,
+    "unanswerable": 4,
+    "dev_test": {
+      "dev": {
+        "total": 15,
+        "answerable": 14,
+        "unanswerable": 1,
+        "modality": {
+          "audio": {
+            "total": 2,
+            "answerable": 2,
+            "unanswerable": 0
+          },
+          "document": {
+            "total": 1,
+            "answerable": 1,
+            "unanswerable": 0
+          },
+          "mixed": {
+            "total": 1,
+            "answerable": 1,
+            "unanswerable": 0
+          },
+          "none": {
+            "total": 1,
+            "answerable": 0,
+            "unanswerable": 1
+          },
+          "pdf": {
+            "total": 2,
+            "answerable": 2,
+            "unanswerable": 0
+          },
+          "presentation": {
+            "total": 1,
+            "answerable": 1,
+            "unanswerable": 0
+          },
+          "spreadsheet": {
+            "total": 2,
+            "answerable": 2,
+            "unanswerable": 0
+          },
+          "video": {
+            "total": 5,
+            "answerable": 5,
+            "unanswerable": 0
+          }
+        },
+        "query_sha256": "93c716195daa7cee0ae4d61d5ec2efa9edbd9ebb991840850833c4b9012cd4f7"
+      },
+      "test": {
+        "total": 60,
+        "answerable": 57,
+        "unanswerable": 3,
+        "modality": {
+          "audio": {
+            "total": 9,
+            "answerable": 9,
+            "unanswerable": 0
+          },
+          "document": {
+            "total": 7,
+            "answerable": 7,
+            "unanswerable": 0
+          },
+          "mixed": {
+            "total": 2,
+            "answerable": 2,
+            "unanswerable": 0
+          },
+          "none": {
+            "total": 3,
+            "answerable": 0,
+            "unanswerable": 3
+          },
+          "pdf": {
+            "total": 6,
+            "answerable": 6,
+            "unanswerable": 0
+          },
+          "presentation": {
+            "total": 5,
+            "answerable": 5,
+            "unanswerable": 0
+          },
+          "spreadsheet": {
+            "total": 8,
+            "answerable": 8,
+            "unanswerable": 0
+          },
+          "video": {
+            "total": 20,
+            "answerable": 20,
+            "unanswerable": 0
+          }
+        },
+        "query_sha256": "9659da6bf2d49c4dfcc6525d0e57091c9ef32bdc909485a0a3312cb1f8e49e71"
+      }
+    },
+    "modality_total": {
+      "audio": 11,
+      "document": 8,
+      "mixed": 3,
+      "none": 4,
+      "pdf": 8,
+      "presentation": 6,
+      "spreadsheet": 10,
+      "video": 25
+    },
+    "task_total": {
+      "abstention": 4,
+      "calculation": 11,
+      "causality": 2,
+      "cross_asset": 3,
+      "lookup": 47,
+      "temporal_exception": 1,
+      "visual": 7
+    },
+    "answerable_evidence_entries_by_question": {
+      "1": 67,
+      "2": 3,
+      "4": 1
+    },
+    "multi_evidence_ids": [
+      "NKB-053",
+      "NKB-055",
+      "NKB-056",
+      "NKB-070"
+    ],
+    "unanswerable_ids": [
+      {
+        "id": "NKB-057",
+        "evidence_entries": 0
+      },
+      {
+        "id": "NKB-058",
+        "evidence_entries": 0
+      },
+      {
+        "id": "NKB-059",
+        "evidence_entries": 0
+      },
+      {
+        "id": "NKB-060",
+        "evidence_entries": 1
+      }
+    ]
+  },
+  "metrics": {
+    "primary_quality_population": "Test only: 57 answerable queries. Report the 3 unanswerable test cases separately. Dev is 14 answerable/1 unanswerable and can be used for pipeline checks or threshold selection before freezing the test.",
+    "k": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "ranking_units": {
+      "asset_ranking": "One item per asset_id, deduplicated to the highest-scoring result; k counts distinct assets.",
+      "chunk_ranking": "One item per indexed source unit. Deduplicate identical normalized path+locator, keeping its highest-scoring result; distinct locators in one asset remain distinct; k counts distinct source units.",
+      "fine_evidence_basis": "Structural only: asset_id/path plus the source locator and its coverage of gold evidence[]. Do not require text content or literal required_fact matches for the primary fine metric. An asset title/id with no specific locator is asset-level only."
+    },
+    "locator_coverage": {
+      "docx_pdf": "Binary structural coverage: match the annotated page and, when gold specifies a heading/section, that same heading/section.",
+      "spreadsheet": "Expand each gold and result cell/range locator to its complete set of cell coordinates. For each evidence entry, compute covered_gold_cells / all_gold_cells using the union of top-k source-unit cells. Mere intersection is partial coverage, not a complete hit.",
+      "presentation": "Binary structural coverage: match the annotated slide number.",
+      "audio_video": "For each gold time interval, only segment-specific returned source-unit intervals no longer than the annotated gold interval may contribute. Compute the union length inside the gold interval divided by its full annotated duration. Mere overlap is partial coverage; a file/title-only result or an unsegmented whole-file envelope broader than the gold segment contributes zero fine coverage and remains asset-level only.",
+      "entry_complete": "An evidence[] entry is complete only at 100% structural coverage (floating-time comparison tolerance 1e-6 seconds). A query is complete only when every evidence[] entry is complete; NKB-070 requires four separate V-SAFE intervals.",
+      "query_coverage": "Average entry coverage within each query, then macro-average queries, so multi-evidence queries do not receive extra query weight."
+    },
+    "primary_metrics": {
+      "asset_hit_at_k": "Fraction of answerable test queries with any gold asset among top k distinct assets.",
+      "asset_mrr_at_10": "Macro-average reciprocal rank of the first gold asset in top 10; zero if absent.",
+      "fine_evidence_hit_at_k": "Fraction of answerable test queries where the top-k chunk union fully covers at least one gold evidence[] entry.",
+      "fine_evidence_mrr_at_10": "Macro-average reciprocal rank of the first prefix of distinct chunks whose union completes any gold evidence[] entry; zero if none completes by rank 10.",
+      "fine_evidence_coverage_at_k": "Macro-average query coverage using the locator_coverage rules above.",
+      "complete_evidence_at_k": "Fraction of answerable test queries where every gold evidence[] entry reaches 100% locator coverage in top k."
+    },
+    "secondary_precision_at_k": {
+      "formula": "Macro-average per-query relevant unique source units / min(k, unique units returned); k and dedup use the ranking_units definitions. No results yields N/A and is retained as a failed query.",
+      "asset_level": "An asset is relevant when its asset_id appears in any gold evidence entry.",
+      "chunk_level": "A chunk is structurally relevant if its specific source locator has valid granularity under locator_coverage and overlaps at least one gold evidence annotation. Report separately from full-coverage Hit@k and coverage metrics.",
+      "interpretation": "P@k is secondary to Hit@k/MRR@10 and does not represent answer correctness."
+    },
+    "literal_fact_support_diagnostic": "Compute normalized required_fact substring support only as a separately labeled lower-bound diagnostic. Missing text for native media is unknown for this diagnostic, not a failure or unknown for structural locator coverage.",
+    "answerability_and_calculation": "Retrieval metrics do not score generated-answer correctness, calculation, or abstention. For 11 calculation tasks, finding source inputs is retrieval success, not computing the answer. Report 4 unanswerable queries separately; do not tune a threshold on test."
+  },
+  "representation_and_limits": {
+    "index_allowlist": "Only multimodal-benchmark/inputs/** (14 files). Exclude gold, queries, benchmark, sources, QA, build scripts, prior results, COMPANY.md, and other files.",
+    "record": "Preserve source asset_id/path/locator, indexed unit, and SHA-256 of the resulting index.",
+    "modality": "Record whether each representation was native model input or derived text (OCR, ASR/transcript, sampled-frame description, extracted document/table/slide text, or metadata). Derived-text retrieval does not prove native multimodal support.",
+    "request": "Send question text only; never send gold answers, required_facts, evidence, or test labels.",
+    "synthetic_limit": "14 self-authored fictional assets and 75 questions from one fictional company; results do not establish real-world or production accuracy. Only 4 questions are unanswerable (3 test, 1 dev), too few to establish a refusal threshold.",
+    "separate_baseline": "Do not pool the prior 24-question text-only run with this 75-question run."
+  },
+  "speed": {
+    "measurement": "CLI query path end-to-end: from question text entering query encoding through cosine scoring/ranking output; network time excluded. Keep model loading, input extraction, embedding/index build, and index write as separate timings.",
+    "calls": "Run the 60 frozen test queries in canonical order for 3 full repetitions (180 calls total); preserve query id, repetition, order, timing, and result for every call. No retries or silent omissions.",
+    "first_query": "Record the first chronological query call separately. Also report timing summaries across all 180 calls and warmed-only remaining 179 calls. If weights/model were already loaded for document indexing or smoke checks, call this the first query, not a cold model run.",
+    "quality_repeat_rule": "Calculate quality metrics per 60-query repetition. Use repetition 1 as the primary score and compare repetitions 2 and 3 for ranking/score consistency; do not treat 180 repeated calls as 180 independent questions.",
+    "summary": "count, median_ms, mean_ms, p95_ms (nearest-rank ceil(0.95*n)), max_ms, first_query_ms; all-call and warmed-only summaries.",
+    "runtime_record": "Resolved model revision; whether model/weights were cached or already warm; actual model input representation; device/dtype; package versions; CPU/GPU and thread count; container CPU/memory limits; vector dimension and index SHA-256; timer boundary and concurrency (serial)."
+  },
+  "post_run_checks": [
+    "Verify model revision and frozen gold/query/input hashes.",
+    "Preserve lossless raw per-query rankings for all 180 calls, with repetition/order, asset ranking, chunk ranking, locators, representation provenance, and timings.",
+    "Independently recompute asset Hit@k/MRR@10, structural fine-evidence Hit@k/MRR@10, full locator coverage, complete evidence, secondary P@k, and latency summaries.",
+    "Compare indexed paths/locators with the 14-file allowlist; exclude gold/query/source/QA leakage.",
+    "Report literal fact support as a separate lower-bound diagnostic, never as generated-answer or numeric understanding accuracy.",
+    "Do not change questions, index boundaries, locator-coverage rules, or thresholds after viewing test scores; retain failed runs separately."
+  ],
+  "model_api_condition": {
+    "text_query": "Use SentenceTransformers encode_query(question, prompt_name=\"QuestionAnswering\") for every QA benchmark query.",
+    "query_prompt_name": "QuestionAnswering",
+    "query_prompt_text": "task: question answering | query: ",
+    "media_document": "For image/audio/video media-only document inputs, explicitly override text prompt with prompt=\"\".",
+    "text_document": "For extracted text from a source file, use encode_document with an actual title derived from that source; preserve the exact title: text prefix used.",
+    "selection_rule": "This is the sole primary prompt condition for the frozen QA retrieval run. Do not select or change prompts after viewing test scores. A smoke check using another prompt is not the benchmark result."
+  },
+  "contract_ready_at": "2026-10-10T12:44:41+09:00",
+  "annotation_validation": {
+    "video_review_path": "multimodal-benchmark/qa/independent-video-review.json",
+    "video_review_sha256": "fcb67f9f9924abafe06ba0bbf300fceb06c646918f0c8b8102719b56c2e3bf94",
+    "status": "pass",
+    "video_count": 3,
+    "question_count": 15,
+    "passed_questions": 15,
+    "failed_questions": 0,
+    "frame_times_seconds": [
+      3,
+      9,
+      15,
+      21
+    ],
+    "unresolved_findings": 0,
+    "reviewed_gold_video_question_ids": [
+      "NKB-061",
+      "NKB-062",
+      "NKB-063",
+      "NKB-064",
+      "NKB-065",
+      "NKB-066",
+      "NKB-067",
+      "NKB-068",
+      "NKB-069",
+      "NKB-070",
+      "NKB-071",
+      "NKB-072",
+      "NKB-073",
+      "NKB-074",
+      "NKB-075"
+    ],
+    "reviewed_video_assets": [
+      {
+        "asset_id": "V-C1",
+        "path": "inputs/video/c1_update.mp4",
+        "sha256": "613d72ea733eeb06b800e7c00b103c7f98b266a4c934a25caf92806ecc661241",
+        "question_ids": [
+          "NKB-061",
+          "NKB-062",
+          "NKB-063",
+          "NKB-064",
+          "NKB-065"
+        ]
+      },
+      {
+        "asset_id": "V-W3-M",
+        "path": "inputs/video/w3_maintenance.mp4",
+        "sha256": "1ebbcabb09cd9bec7ed8f4b7986544c3e875c612e6bce07190ccbbac69d37c76",
+        "question_ids": [
+          "NKB-071",
+          "NKB-072",
+          "NKB-073",
+          "NKB-074",
+          "NKB-075"
+        ]
+      },
+      {
+        "asset_id": "V-SAFE",
+        "path": "inputs/video/warehouse_safety.mp4",
+        "sha256": "1f7c271ff5e11167a30fc32f31374d7d0ad4695a2687bbac051f0bb838eef696",
+        "question_ids": [
+          "NKB-066",
+          "NKB-067",
+          "NKB-068",
+          "NKB-069",
+          "NKB-070"
+        ]
+      }
+    ],
+    "audio_asr": "Not independently verified. Audio retrieval scores are retrieval against the frozen gold annotations/segments, not ASR correctness or answer understanding."
+  },
+  "aggregation_helper_alignment": {
+    "path": "accuracy-speed-run/analysis/summarize.py",
+    "pre_evaluation_audit": "Current helper makes literal normalized required_fact substring support a condition for fine evidence, classifies absent index text as unknown, accepts any temporal overlap, and treats cell-reference set intersection as a hit. These do not implement structural full-cell/full-interval coverage.",
+    "required_before_final_scoring": [
+      "Use locator/path structure and full annotation coverage as the primary fine evidence score.",
+      "Report literal required_fact support separately as a lower-bound diagnostic; missing media text must not change primary structural coverage.",
+      "Compute cell-range and time-interval union coverage; partial overlap is not a complete evidence hit."
+    ],
+    "status": "Mismatch identified before test scoring; independent result verification must not accept final helper scores until reconciled to this contract."
+  }
+}

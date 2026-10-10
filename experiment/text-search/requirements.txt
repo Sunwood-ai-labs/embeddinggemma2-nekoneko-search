@@ -1,0 +1,7 @@
+sentence-transformers==6.1.0
+transformers==5.19.0
+fastapi==0.143.0
+uvicorn==0.54.0
+numpy==2.5.3
+pillow==12.3.0
+soundfile==0.14.0

@@ -1,0 +1,34 @@
+name: embeddinggemma2-accuracy-speed
+services:
+  benchmark:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: localhost/embeddinggemma2-accuracy-speed:20261010
+    cpus: 4
+    mem_limit: 8g
+    network_mode: none
+    environment:
+      MODEL_ID: google/embeddinggemma-2
+      MODEL_REVISION: 914f7f89142e33e77833254d9c9b90c3cef7303b
+      MODEL_SNAPSHOT: /cache/hub/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b
+      TORCH_THREADS: "4"
+      RUN_ATTEMPT_ID: ${RUN_ATTEMPT_ID:-attempt-01}
+      INDEX_PATH: /benchmark/run/index.jsonl
+      MANIFEST_PATH: ${MANIFEST_PATH:-/benchmark/run/run_manifest.json}
+      VECTOR_PATH: /benchmark/run/index-vectors.npy
+      ERROR_PATH: /benchmark/run/index-errors.jsonl
+      RUNTIME_PATH: /benchmark/run/runtime-measurements.json
+    volumes:
+      - ../multimodal-benchmark/inputs:/benchmark/inputs:ro
+      - ../multimodal-benchmark/manifest.json:/benchmark/source-manifest.json:ro
+      - ../multimodal-benchmark/benchmark/queries-dev.jsonl:/benchmark/queries-dev.jsonl:ro
+      - ../multimodal-benchmark/benchmark/queries-test.jsonl:/benchmark/queries-test.jsonl:ro
+      - ./:/benchmark/run:rw
+      - model-cache:/cache:ro
+    restart: "no"
+
+volumes:
+  model-cache:
+    external: true
+    name: nekoneko-embeddinggemma2_model-cache

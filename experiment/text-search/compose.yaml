@@ -1,0 +1,26 @@
+name: nekoneko-embeddinggemma2
+services:
+  search:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: localhost/nekoneko-embeddinggemma2:20261010
+    cpus: 4
+    mem_limit: 8g
+    ports:
+      - "127.0.0.1:8762:8080"
+    environment:
+      MODEL_ID: google/embeddinggemma-2
+      MODEL_REVISION: 914f7f89142e33e77833254d9c9b90c3cef7303b
+      TORCH_THREADS: "4"
+    volumes:
+      - model-cache:/cache
+      - ./results:/app/results
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 600s
+volumes:
+  model-cache:

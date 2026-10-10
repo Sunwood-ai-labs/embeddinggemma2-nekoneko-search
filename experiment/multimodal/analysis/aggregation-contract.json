@@ -1,0 +1,85 @@
+{
+  "schema": "embeddinggemma2-aggregation-contract/v1",
+  "status": "prepared-not-run",
+  "inputs": {
+    "raw": "Lossless query-call JSONL supplied by the experiment runner.",
+    "index": "The frozen source index JSONL used by the model run.",
+    "gold": "Frozen benchmark gold JSON; never supplied to the model as query or index content.",
+    "locator_resolution": "A source-verified map from each unique gold evidence location to source headings/pages/slides/sheet numbers/cells/intervals and matching frozen index chunk IDs. Verify the gold, index, and source-file hashes before aggregation."
+  },
+  "populations": {
+    "test": {
+      "total_queries": 60,
+      "answerable_queries": 57,
+      "unanswerable_queries": 3,
+      "repetitions": 3,
+      "primary_repetition": 1
+    },
+    "dev": {
+      "total_queries": 15,
+      "answerable_queries": 14,
+      "unanswerable_queries": 1,
+      "repetitions": "Use repetitions present in raw records; do not infer model output when absent."
+    },
+    "denominator": "Quality metrics use answerable queries in each split. Missing or failed calls remain in the denominator and score zero retrieval hits."
+  },
+  "ranking": {
+    "asset_unit": "One row per asset_id, retaining the maximum finite score; ties preserve input rank. If scores are unavailable, retain the earliest explicit rank or raw list position and list the missing/nonfinite score separately.",
+    "chunk_unit": "One row per normalized source path plus locator, retaining the maximum finite score; different locators within one asset remain separate.",
+    "ordering": "Use explicit rank when complete; otherwise descending finite score when complete; otherwise preserve the raw ranking list order.",
+    "primary_k": [1, 3, 5, 10]
+  },
+  "metrics": {
+    "asset_hit_at_k": "Fraction of answerable queries with a gold evidence asset among the top k distinct assets.",
+    "asset_mrr_at_10": "Macro-average reciprocal rank of the first gold asset among the top 10 distinct assets; zero when absent.",
+    "fine_evidence_hit_at_k": "Fraction with at least one gold evidence entry fully covered by the top-k deduplicated locators for its gold asset/path. Text/media semantic support is not required by this retrieval-only measure.",
+    "fine_evidence_mrr_at_10": "Macro-average reciprocal rank of the first prefix of the top 10 distinct locators that fully covers any gold evidence entry; zero when absent.",
+    "fine_evidence_coverage_at_k": "Per-query fraction of gold evidence entries fully represented by the top-k retrieved locators, macro-averaged over answerable queries.",
+    "fine_evidence_unit_fraction_coverage_at_k": "Macro-average, first within each query across its evidence entries, of the fraction of annotated interval duration or spreadsheet cells covered by top k. Report this separately from binary full-entry coverage.",
+    "complete_evidence_at_k": "Fraction of answerable queries for which all evidence entries are fully represented by top k. Count each evidence entry separately; NKB-070 requires all four V-SAFE intervals.",
+    "coverage_rules": {
+      "time_interval": "Combine the retrieved source intervals for the same gold asset/path after rounding endpoints to the locator precision of 0.001 seconds. An evidence entry is covered only when their union covers the entire annotated interval without a visible gap; partial duration is reported separately and gaps are never bridged by the minimum/maximum envelope.",
+      "spreadsheet_cells": "Expand each evidence cell range. An evidence entry is covered only when all annotated cells in that range are present across the retrieved source locators; the covered-cell fraction is reported separately.",
+      "page_slide_section": "The retrieved source locator must identify the annotated page, slide, or section. DOCX is resolved by exact source heading; page numbers without explicit page breaks are marked unverified and are not used as a fuzzy match.",
+      "asset_only": "Asset title/id match is never counted as fine evidence."
+    },
+    "secondary_precision_at_k": "Report asset P@k and structurally matched locator P@k separately. Denominator is min(k, unique returned items); if no item is returned, record N/A and the empty-result count."
+  },
+  "fact_support_diagnostic": {
+    "separate_from_primary_metrics": true,
+    "method": "For locator-matched results with index text, record whether any normalized required_fact occurs as a literal substring. Missing index text is unknown.",
+    "interpretation": "This is a conservative lexical diagnostic, not the primary retrieval evidence score, not a semantic entailment judgment, and not generated-answer correctness. Native media without index text is not a primary-score failure."
+  },
+  "unknowns": {
+    "unknown_scores": "Missing, invalid, or nonfinite score values in raw ranked candidates; emitted to a separate table.",
+    "unresolved_locators": "Gold annotations that cannot be resolved to source/index locations, and raw candidates that cannot be resolved to the frozen index, are reported separately and excluded from fine-evidence scoring rather than treated as model false hits/misses.",
+    "unanswerable": "Report actual candidate ranks and scores separately for the 3 test and 1 dev unanswerable queries; do not treat retrieval as correct abstention or choose a threshold from test."
+  },
+  "latency": {
+    "population": "Test query calls only.",
+    "all_calls": 180,
+    "warmed_calls": 179,
+    "first_query": "First chronological test call, reported separately.",
+    "p95": "Nearest-rank ceil(0.95*n).",
+    "statistics": ["count", "median_ms", "mean_ms", "p95_ms", "max_ms", "first_query_ms"],
+    "repetitions_are_independent_queries": false
+  },
+  "outputs": [
+    "metrics.json",
+    "quality_metrics.csv",
+    "latency_summary.csv",
+    "locator-resolution.json",
+    "unknown_scores.csv",
+    "unanswerable.csv",
+    "fact_support_diagnostics.csv",
+    "unresolved_gold_locators.csv",
+    "unresolved_candidates.csv",
+    "asset_ranking_consistency.csv",
+    "REPORT.md"
+  ],
+  "guardrails": [
+    "Do not edit questions, gold, index, model settings, or run protocol after viewing test scores.",
+    "Do not call retrieval results generated-answer accuracy, arithmetic correctness, or abstention accuracy.",
+    "Do not pool the earlier separate 24-question run with this benchmark."
+  ]
+}

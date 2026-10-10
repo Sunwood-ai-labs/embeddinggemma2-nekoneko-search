@@ -1,0 +1,127 @@
+{
+  "schema": "embeddinggemma2-native-search-contract/v1",
+  "verified_at": "2026-10-10",
+  "checkpoint": {
+    "model_id": "google/embeddinggemma-2",
+    "revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+    "architecture": "EmbeddingGemma2Model",
+    "official_card_parameters_approx": 740000000,
+    "official_transformers_docs_parameters_approx": 744000000,
+    "output_dimensions": 768,
+    "modalities": ["text", "image", "audio", "video"],
+    "embedding_only": true,
+    "answer_generation": false,
+    "similarity": "cosine"
+  },
+  "software": {
+    "python_minimum": "3.10",
+    "pytorch_minimum": "2.2",
+    "sentence_transformers_minimum": "6.1.0",
+    "sentence_transformers_project_pin": "6.1.0",
+    "transformers_range": ">=5.0.0,<6.0.0",
+    "transformers_project_pin": "5.19.0",
+    "multimodal_install": "pip install \"sentence-transformers[image,audio,video]==6.1.0\" \"transformers==5.19.0\"",
+    "torchcodec": "Only needed when passing torchcodec decoder objects; not required by the documented path input form when file decoding dependencies are present."
+  },
+  "api": {
+    "recommended": "SentenceTransformer",
+    "revision_argument": "revision",
+    "device": "cpu",
+    "model_kwargs": {"dtype": "torch.float32"},
+    "required_model_support_checks": ["image", "audio", "video"],
+    "query_method": "encode_query",
+    "document_method": "encode_document",
+    "media_document_prompt_override": "",
+    "similarity_method": "model.similarity",
+    "normalize_embeddings": true,
+    "dimensions_default": 768
+  },
+  "prompts": {
+    "query_name": "QuestionAnswering",
+    "query_text": "task: question answering | query: ",
+    "generic_search_query_name": "query",
+    "generic_search_query_text": "task: search result | query: ",
+    "document_name": "document",
+    "document_text": "title: none | text: ",
+    "media_only_prefix": "",
+    "rule": "For this question-answering retrieval benchmark, freeze the QuestionAnswering query prompt. The model card says task prefixes apply to text only; media-only image/audio/video inputs must have no text prefix. Use prompt=\"\" to override the registered document/query prompt on media inputs."
+  },
+  "modalities": {
+    "image": {
+      "accepted": ["PIL image", "path", "URL", "NumPy array", "PyTorch tensor"],
+      "default_soft_tokens_per_image": 280,
+      "allowed_soft_tokens": [70, 140, 280, 560, 1120]
+    },
+    "audio": {
+      "accepted": ["path", "URL", "waveform array plus sampling_rate", "supported decoder object"],
+      "required_sample_rate_hz": 16000,
+      "required_channels": 1,
+      "max_soft_tokens_per_segment": 750,
+      "milliseconds_per_soft_token": 40,
+      "approx_seconds_per_segment": 30,
+      "benchmark_source_audio": [
+        {"path": "multimodal-benchmark/inputs/audio/quality_meeting.wav", "sample_rate_hz": 22050, "channels": 1, "duration_seconds": 60.97288},
+        {"path": "multimodal-benchmark/inputs/audio/warehouse_announcement.wav", "sample_rate_hz": 22050, "channels": 1, "duration_seconds": 60.001905}
+      ],
+      "required_benchmark_handling": "Resample to mono 16 kHz, split to <=30 second segments unless effective processor token count proves complete handling, retain offsets, aggregate chunk results by source asset."
+    },
+    "video": {
+      "accepted": ["path", "URL", "pre-sampled frame arrays with metadata"],
+      "default_fps": 1,
+      "default_max_frames": 32,
+      "overflow_strategy": "uniform",
+      "add_timestamps": false,
+      "visual_soft_tokens_per_frame_default": 140
+    }
+  },
+  "file_preprocessing": {
+    "direct_file_modalities": ["image", "audio", "video"],
+    "not_direct_modalities": ["docx", "pdf", "xlsx", "pptx"],
+    "required_strategy_for_office_and_pdf": ["extract text and embed as text", "render pages/slides/sheets to images and embed as image"],
+    "asr_or_ocr_is_native_media_embedding": false
+  },
+  "precision_and_memory": {
+    "checkpoint_default_dtype": "bfloat16",
+    "cpu_recommended_dtype": "float32",
+    "float16_allowed": false,
+    "float16_failure_mode": "NaNs or silent quality degradation per model card",
+    "float32_raw_weight_estimate_bytes": [2960000000, 2976000000],
+    "float32_raw_weight_estimate_note": "Approximate parameter count times four bytes; excludes model/runtime overhead and peak activations. Must measure peak RSS on target host.",
+    "current_app_parameters_loaded": 271002624,
+    "current_app_load_dtype": "torch.float32",
+    "current_app_disabled_towers": ["vision_config", "audio_config"],
+    "full_multimodal_memory_measurement_status": "not_measured"
+  },
+  "evaluation": {
+    "question_count": 75,
+    "answerable_count": 71,
+    "unanswerable_count": 4,
+    "dev_count": 15,
+    "test_count": 60,
+    "metric_scope": "retrieval ranking and separately measured no-answer/rejection policy; not generated answer accuracy",
+    "benchmark_model_execution_status_at_contract_time": "not_executed_by_researcher"
+  },
+  "runner_measurements_required": [
+    "single cold full-model load time",
+    "peak process RSS with full native towers",
+    "CPU model and core/thread configuration",
+    "text query latency",
+    "image/audio/video embedding latency by modality",
+    "preprocessing time separated from model inference",
+    "indexing time and document throughput",
+    "batch size and fixed video/audio processing parameters",
+    "output shape, finite values, and retrieval ranking metrics"
+  ],
+  "sources": [
+    "https://huggingface.co/google/embeddinggemma-2/tree/914f7f89142e33e77833254d9c9b90c3cef7303b",
+    "https://huggingface.co/google/embeddinggemma-2/blob/914f7f89142e33e77833254d9c9b90c3cef7303b/config.json",
+    "https://huggingface.co/google/embeddinggemma-2/blob/914f7f89142e33e77833254d9c9b90c3cef7303b/config_sentence_transformers.json",
+    "https://huggingface.co/docs/transformers/model_doc/embedding_gemma2",
+    "https://github.com/huggingface/transformers/blob/v5.19.0/src/transformers/models/embedding_gemma2/modeling_embedding_gemma2.py",
+    "https://github.com/huggingface/transformers/blob/v5.19.0/src/transformers/models/embedding_gemma2/processing_embedding_gemma2.py",
+    "https://sbert.net/docs/input_formats.html",
+    "https://sbert.net/docs/installation.html",
+    "https://github.com/huggingface/sentence-transformers/blob/v6.1.0/pyproject.toml",
+    "https://sbert.net/docs/package_reference/sentence_transformer/model.html"
+  ]
+}
