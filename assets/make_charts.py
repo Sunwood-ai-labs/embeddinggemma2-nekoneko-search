@@ -155,3 +155,48 @@ for i, (label, unit, key) in enumerate(rows):
 write('chart-indexing.svg', frame(
     y0 + len(rows) * rh + 4, f'資料の登録にかかった{total:.0f}秒のうち、{sum(sec["video"]) / total * 100:.0f}%は動画',
     f'EmbeddingGemma 2、CPU。{len(timings)}検索単位を1つずつベクトルにした時間の合計', body))
+
+# ---- 5. 資料にない質問の類似度 ----
+first = [r for r in calls if r['repetition'] == '1']
+known = sorted(float(r['top1_asset_score']) for r in first if r['answerable'] == 'True')
+unknown = [(r['question'], float(r['top1_asset_score'])) for r in first if r['answerable'] != 'True']
+lo, hi = 0.64, 0.86
+x0, pw = 250, 580
+
+
+def sx(value):
+    return x0 + (value - lo) / (hi - lo) * pw
+
+
+y1, y2 = 150, 226
+body = []
+for i in range(12):
+    value = lo + i * 0.02
+    body += [
+        f'<line x1="{sx(value):.1f}" x2="{sx(value):.1f}" y1="{y1 - 34}" y2="{y2 + 30}" stroke="{TRACK}"/>',
+        f'<text x="{sx(value):.1f}" y="{y2 + 50}" font-size="12" text-anchor="middle" fill="{SUB}">{value:.2f}</text>',
+    ]
+body += [
+    f'<text x="32" y="{y1 - 4}" font-size="15" font-weight="700" fill="{INK}">答えがある{len(known)}問</text>',
+    f'<text x="32" y="{y1 + 15}" font-size="12" fill="{SUB}">{known[0]:.2f}〜{known[-1]:.2f}</text>',
+    f'<text x="32" y="{y2 - 4}" font-size="15" font-weight="700" fill="{INK}">資料にない{len(unknown)}問</text>',
+    f'<text x="32" y="{y2 + 15}" font-size="12" fill="{SUB}">{min(s for _, s in unknown):.2f}〜{max(s for _, s in unknown):.2f}</text>',
+    f'<rect x="{sx(known[0]):.1f}" y="{y1 - 22}" width="{sx(known[-1]) - sx(known[0]):.1f}" height="{y2 - y1 + 44}" fill="{ACCENT}" fill-opacity="0.07"/>',
+]
+stack = defaultdict(int)
+for value in known:  # 近い値は上に積む
+    key = round(value / 0.006)
+    body.append(f'<circle cx="{sx(key * 0.006):.1f}" cy="{y1 + 6 - stack[key] * 9}" r="4" fill="{ACCENT}"><title>{value:.3f}</title></circle>')
+    stack[key] += 1
+for question, value in unknown:
+    cx = sx(value)
+    body += [
+        f'<circle cx="{cx:.1f}" cy="{y2}" r="7" fill="{CARD}" stroke="{INK}" stroke-width="2"><title>{question}: {value:.3f}</title></circle>',
+        f'<path d="M{cx - 3:.1f} {y2 - 3}l6 6M{cx + 3:.1f} {y2 - 3}l-6 6" stroke="{INK}" stroke-width="2"/>',
+        f'<text x="{cx:.1f}" y="{y2 + 24}" font-size="12" text-anchor="middle" fill="{INK}">{value:.3f}</text>',
+    ]
+body.append(f'<text x="{x0 + pw / 2}" y="{y2 + 74}" font-size="12.5" text-anchor="middle" fill="{SUB}">1位の資料との類似度（cosine）。青い帯は、答えがある質問の範囲</text>')
+inside = sum(known[0] <= s <= known[-1] for _, s in unknown)
+write('chart-unanswerable.svg', frame(
+    y2 + 94, f'資料にない{len(unknown)}問のうち{inside}問は、答えがある質問と同じ類似度の範囲に入る',
+    'EmbeddingGemma 2。検索結果の1位の類似度。資料に答えがなくても、候補は同じくらいの点で返る', body))

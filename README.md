@@ -71,6 +71,10 @@ Googleの埋め込みモデル [EmbeddingGemma 2](https://huggingface.co/google/
   <img src="assets/chart-indexing.svg" alt="形式ごとの登録時間" width="100%">
 </p>
 
+<p align="center">
+  <img src="assets/chart-unanswerable.svg" alt="資料にない質問の類似度" width="100%">
+</p>
+
 <details>
 <summary>グラフの元になった数値</summary>
 

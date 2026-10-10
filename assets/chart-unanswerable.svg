@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" width="880" height="320" role="img" aria-label="資料にない3問のうち2問は、答えがある質問と同じ類似度の範囲に入る" font-family="'Segoe UI','Hiragino Sans','Yu Gothic UI','Meiryo','Noto Sans JP',sans-serif">
+<rect x="0.5" y="0.5" width="879" height="319" rx="12" fill="#FFFFFF" stroke="#D1D5DB"/>
+<text x="32" y="44" font-size="20" font-weight="700" fill="#111827">資料にない3問のうち2問は、答えがある質問と同じ類似度の範囲に入る</text>
+<text x="32" y="70" font-size="13.5" fill="#6B7280">EmbeddingGemma 2。検索結果の1位の類似度。資料に答えがなくても、候補は同じくらいの点で返る</text>
+<line x1="250.0" x2="250.0" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="250.0" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.64</text>
+<line x1="302.7" x2="302.7" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="302.7" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.66</text>
+<line x1="355.5" x2="355.5" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="355.5" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.68</text>
+<line x1="408.2" x2="408.2" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="408.2" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.70</text>
+<line x1="460.9" x2="460.9" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="460.9" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.72</text>
+<line x1="513.6" x2="513.6" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="513.6" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.74</text>
+<line x1="566.4" x2="566.4" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="566.4" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.76</text>
+<line x1="619.1" x2="619.1" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="619.1" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.78</text>
+<line x1="671.8" x2="671.8" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="671.8" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.80</text>
+<line x1="724.5" x2="724.5" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="724.5" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.82</text>
+<line x1="777.3" x2="777.3" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="777.3" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.84</text>
+<line x1="830.0" x2="830.0" y1="116" y2="256" stroke="#EEF0F2"/>
+<text x="830.0" y="276" font-size="12" text-anchor="middle" fill="#6B7280">0.86</text>
+<text x="32" y="146" font-size="15" font-weight="700" fill="#111827">答えがある57問</text>
+<text x="32" y="165" font-size="12" fill="#6B7280">0.68〜0.83</text>
+<text x="32" y="222" font-size="15" font-weight="700" fill="#111827">資料にない3問</text>
+<text x="32" y="241" font-size="12" fill="#6B7280">0.68〜0.77</text>
+<rect x="367.1" y="128" width="376.6" height="120" fill="#1A73E8" fill-opacity="0.07"/>
+<circle cx="366.0" cy="156" r="4" fill="#1A73E8"><title>0.684</title></circle>
+<circle cx="381.8" cy="156" r="4" fill="#1A73E8"><title>0.687</title></circle>
+<circle cx="413.5" cy="156" r="4" fill="#1A73E8"><title>0.700</title></circle>
+<circle cx="413.5" cy="147" r="4" fill="#1A73E8"><title>0.702</title></circle>
+<circle cx="429.3" cy="156" r="4" fill="#1A73E8"><title>0.708</title></circle>
+<circle cx="460.9" cy="156" r="4" fill="#1A73E8"><title>0.721</title></circle>
+<circle cx="460.9" cy="147" r="4" fill="#1A73E8"><title>0.721</title></circle>
+<circle cx="476.7" cy="156" r="4" fill="#1A73E8"><title>0.724</title></circle>
+<circle cx="476.7" cy="147" r="4" fill="#1A73E8"><title>0.726</title></circle>
+<circle cx="476.7" cy="138" r="4" fill="#1A73E8"><title>0.726</title></circle>
+<circle cx="476.7" cy="129" r="4" fill="#1A73E8"><title>0.727</title></circle>
+<circle cx="476.7" cy="120" r="4" fill="#1A73E8"><title>0.728</title></circle>
+<circle cx="476.7" cy="111" r="4" fill="#1A73E8"><title>0.728</title></circle>
+<circle cx="508.4" cy="156" r="4" fill="#1A73E8"><title>0.740</title></circle>
+<circle cx="524.2" cy="156" r="4" fill="#1A73E8"><title>0.745</title></circle>
+<circle cx="540.0" cy="156" r="4" fill="#1A73E8"><title>0.747</title></circle>
+<circle cx="540.0" cy="147" r="4" fill="#1A73E8"><title>0.748</title></circle>
+<circle cx="540.0" cy="138" r="4" fill="#1A73E8"><title>0.749</title></circle>
+<circle cx="555.8" cy="156" r="4" fill="#1A73E8"><title>0.753</title></circle>
+<circle cx="555.8" cy="147" r="4" fill="#1A73E8"><title>0.754</title></circle>
+<circle cx="555.8" cy="138" r="4" fill="#1A73E8"><title>0.754</title></circle>
+<circle cx="555.8" cy="129" r="4" fill="#1A73E8"><title>0.756</title></circle>
+<circle cx="555.8" cy="120" r="4" fill="#1A73E8"><title>0.757</title></circle>
+<circle cx="555.8" cy="111" r="4" fill="#1A73E8"><title>0.757</title></circle>
+<circle cx="555.8" cy="102" r="4" fill="#1A73E8"><title>0.758</title></circle>
+<circle cx="555.8" cy="93" r="4" fill="#1A73E8"><title>0.758</title></circle>
+<circle cx="571.6" cy="156" r="4" fill="#1A73E8"><title>0.761</title></circle>
+<circle cx="571.6" cy="147" r="4" fill="#1A73E8"><title>0.761</title></circle>
+<circle cx="571.6" cy="138" r="4" fill="#1A73E8"><title>0.763</title></circle>
+<circle cx="571.6" cy="129" r="4" fill="#1A73E8"><title>0.765</title></circle>
+<circle cx="587.5" cy="156" r="4" fill="#1A73E8"><title>0.767</title></circle>
+<circle cx="587.5" cy="147" r="4" fill="#1A73E8"><title>0.768</title></circle>
+<circle cx="587.5" cy="138" r="4" fill="#1A73E8"><title>0.769</title></circle>
+<circle cx="603.3" cy="156" r="4" fill="#1A73E8"><title>0.771</title></circle>
+<circle cx="603.3" cy="147" r="4" fill="#1A73E8"><title>0.772</title></circle>
+<circle cx="603.3" cy="138" r="4" fill="#1A73E8"><title>0.774</title></circle>
+<circle cx="603.3" cy="129" r="4" fill="#1A73E8"><title>0.774</title></circle>
+<circle cx="603.3" cy="120" r="4" fill="#1A73E8"><title>0.775</title></circle>
+<circle cx="619.1" cy="156" r="4" fill="#1A73E8"><title>0.780</title></circle>
+<circle cx="619.1" cy="147" r="4" fill="#1A73E8"><title>0.781</title></circle>
+<circle cx="619.1" cy="138" r="4" fill="#1A73E8"><title>0.782</title></circle>
+<circle cx="619.1" cy="129" r="4" fill="#1A73E8"><title>0.782</title></circle>
+<circle cx="634.9" cy="156" r="4" fill="#1A73E8"><title>0.785</title></circle>
+<circle cx="634.9" cy="147" r="4" fill="#1A73E8"><title>0.786</title></circle>
+<circle cx="650.7" cy="156" r="4" fill="#1A73E8"><title>0.792</title></circle>
+<circle cx="650.7" cy="147" r="4" fill="#1A73E8"><title>0.793</title></circle>
+<circle cx="650.7" cy="138" r="4" fill="#1A73E8"><title>0.794</title></circle>
+<circle cx="666.5" cy="156" r="4" fill="#1A73E8"><title>0.796</title></circle>
+<circle cx="666.5" cy="147" r="4" fill="#1A73E8"><title>0.799</title></circle>
+<circle cx="666.5" cy="138" r="4" fill="#1A73E8"><title>0.800</title></circle>
+<circle cx="682.4" cy="156" r="4" fill="#1A73E8"><title>0.802</title></circle>
+<circle cx="682.4" cy="147" r="4" fill="#1A73E8"><title>0.804</title></circle>
+<circle cx="698.2" cy="156" r="4" fill="#1A73E8"><title>0.809</title></circle>
+<circle cx="698.2" cy="147" r="4" fill="#1A73E8"><title>0.810</title></circle>
+<circle cx="714.0" cy="156" r="4" fill="#1A73E8"><title>0.817</title></circle>
+<circle cx="745.6" cy="156" r="4" fill="#1A73E8"><title>0.826</title></circle>
+<circle cx="745.6" cy="147" r="4" fill="#1A73E8"><title>0.827</title></circle>
+<circle cx="409.3" cy="226" r="7" fill="#FFFFFF" stroke="#111827" stroke-width="2"><title>社長の自宅住所と個人携帯の番号は？: 0.700</title></circle>
+<path d="M406.3 223l6 6M412.3 223l-6 6" stroke="#111827" stroke-width="2"/>
+<text x="409.3" y="250" font-size="12" text-anchor="middle" fill="#111827">0.700</text>
+<circle cx="351.0" cy="226" r="7" fill="#FFFFFF" stroke="#111827" stroke-width="2"><title>2027年度の売上予測と営業利益率は？: 0.678</title></circle>
+<path d="M348.0 223l6 6M354.0 223l-6 6" stroke="#111827" stroke-width="2"/>
+<text x="351.0" y="250" font-size="12" text-anchor="middle" fill="#111827">0.678</text>
+<circle cx="588.9" cy="226" r="7" fill="#FFFFFF" stroke="#111827" stroke-width="2"><title>ロンドンの海外出張の宿泊費上限はいくら？: 0.769</title></circle>
+<path d="M585.9 223l6 6M591.9 223l-6 6" stroke="#111827" stroke-width="2"/>
+<text x="588.9" y="250" font-size="12" text-anchor="middle" fill="#111827">0.769</text>
+<text x="540.0" y="300" font-size="12.5" text-anchor="middle" fill="#6B7280">1位の資料との類似度（cosine）。青い帯は、答えがある質問の範囲</text>
+</svg>
