@@ -50,9 +50,29 @@ EmbeddingGemma 2 の特徴は、文章だけでなく画像・音声・動画も
 1. **文章だけの予備実験。** 架空の社内規程24文書に、言い換えた質問24問を投げる。
 2. **資料の形式を混ぜた本測定。** Word・PDF・Excel・PowerPoint・音声・動画の14資料に、75問を投げる。この記事の主な数字はこちらです。
 
-資料はすべて、この実験のために作った架空の内容です。ペット用品メーカーという設定で、在宅勤務規程、出張費、製品の異音調査、製造実績、倉庫の放送、検査や梱包の訓練動画などを用意しました。動画は実写ではなく、日本語の文字と色が切り替わる24秒の無音アニメーションです。
+資料はすべて、この実験のために作った架空の内容です。ペット用品メーカーという設定で、在宅勤務規程、出張費、製品の異音調査、製造実績、倉庫の放送、検査や梱包の訓練動画などを用意しました。
 
-![5本の動画の各工程](https://raw.githubusercontent.com/Sunwood-ai-labs/embeddinggemma2-nekoneko-search/main/assets/video-contact-sheet.png)
+![検索対象にした14資料の一覧](https://raw.githubusercontent.com/Sunwood-ai-labs/embeddinggemma2-nekoneko-search/main/assets/inputs-overview.jpg)
+
+### 入力した資料の中身
+
+形式ごとに、実際の中身を並べます。
+
+WordとPDFは、社内規程や品質通知です。現行の規程のほかに、廃止済みの旧規程も1つ混ぜてあります。
+
+![WordとPDFの各ページ](https://raw.githubusercontent.com/Sunwood-ai-labs/embeddinggemma2-nekoneko-search/main/assets/inputs-documents.jpg)
+
+Excelは製造実績と経費申請例で、合計や超過額は数式で計算しています。PowerPointは四半期の計画で、6枚のうち1枚は予算の表です。
+
+![ExcelとPowerPointの中身](https://raw.githubusercontent.com/Sunwood-ai-labs/embeddinggemma2-nekoneko-search/main/assets/inputs-office.jpg)
+
+音声は、品質会議の決定事項と倉庫の連絡を合成音声で読み上げたものです。図の下に並べた文は読み上げた内容で、モデルには渡していません。モデルに渡したのは、点線で区切った15秒ごとの音声だけです。
+
+![音声2本の波形と読み上げ内容](https://raw.githubusercontent.com/Sunwood-ai-labs/embeddinggemma2-nekoneko-search/main/assets/inputs-audio.jpg)
+
+動画は実写ではなく、日本語の文字と色が切り替わる24秒の無音アニメーションです。6秒ごとに1つの工程を表示します。
+
+![動画5本の各区間](https://raw.githubusercontent.com/Sunwood-ai-labs/embeddinggemma2-nekoneko-search/main/assets/inputs-video.jpg)
 
 ## 実験のやり方
 

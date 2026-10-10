@@ -33,6 +33,24 @@
 
 Googleの埋め込みモデル [EmbeddingGemma 2](https://huggingface.co/google/embeddinggemma-2)（2026年10月6日公開、文章・画像・音声・動画に対応）を、Podman Compose上のCPUだけで動かしました。架空企業「ネコネコインダストリー」のWord・PDF・Excel・PowerPoint・音声・動画を1つの索引に入れ、日本語の質問で答えの載った資料を探せるかを採点しています。音声と動画は文字起こしをせず、ファイルのままモデルに渡しました。
 
+<p align="center">
+  <img src="assets/inputs-overview.jpg" alt="検索対象にした14資料の一覧" width="100%">
+</p>
+
+<details>
+<summary>入力した資料の中身（形式ごとのタイル画像）</summary>
+
+<p align="center">
+  <img src="assets/inputs-documents.jpg" alt="WordとPDFの各ページ" width="100%">
+  <img src="assets/inputs-office.jpg" alt="ExcelとPowerPointの中身" width="100%">
+  <img src="assets/inputs-audio.jpg" alt="音声2本の波形と読み上げ内容" width="100%">
+  <img src="assets/inputs-video.jpg" alt="動画5本の各区間" width="100%">
+</p>
+
+音声の図にある文は読み上げた内容で、索引には入れていません。
+
+</details>
+
 ## 結果
 
 答えの載った資料が1位に出たのは57問中43問、上位5件まで見れば57問すべてでした（2026-10-10、CPU 4スレッド）。
@@ -128,11 +146,11 @@ cd .. && python quickstart/score.py results/multimodal/raw/test-query-results.js
 | `benchmark/` | 架空の社内資料（Word・PDF・Excel・PowerPoint）、質問75問、正解、動画ごとのQA |
 | `results/` | 実測結果。生の検索結果、集計CSV、質問別の結果、実行環境の記録 |
 | `docs/` | 実測レポート、独立再集計、事前調査メモ、予備実験のレポート |
-| `assets/` | ヘッダー画像、グラフ、生成スクリプト（`make_charts.py`、`make_header.py`） |
+| `assets/` | ヘッダー画像、グラフ、入力資料のタイル画像、生成スクリプト（`make_charts.py`、`make_header.py`、`make_input_tiles.py`） |
 
-`experiment/` のスクリプトは、実験時のフォルダ構成と音声・動画の素材を前提にしています。音声2本と動画5本、モデルの重み、実行ログはこのリポジトリに含めていないため、そのままでは本測定を再現できません。処理内容の参照用です。動画と音声の内容は、[`benchmark/QA_LIST.md`](benchmark/QA_LIST.md) の質問と正解、[`results/multimodal/index.jsonl`](results/multimodal/index.jsonl) の区間一覧で確認できます。
+`experiment/` のスクリプトは、実験時のフォルダ構成と音声・動画の素材を前提にしています。音声2本と動画5本、モデルの重み、実行ログはこのリポジトリに含めていないため、そのままでは本測定を再現できません。処理内容の参照用です。動画と音声の内容は、上のタイル画像、[`benchmark/QA_LIST.md`](benchmark/QA_LIST.md) の質問と正解、[`results/multimodal/index.jsonl`](results/multimodal/index.jsonl) の区間一覧で確認できます。
 
-グラフは実測値から作り直せます。
+グラフは実測値から作り直せます。入力資料のタイル画像（`make_input_tiles.py`）は、リポジトリに含めていないページ画像・動画のフレーム・音声ファイルから作っています。
 
 ```bash
 python assets/make_charts.py && python assets/make_header.py
