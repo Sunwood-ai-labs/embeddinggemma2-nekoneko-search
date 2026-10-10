@@ -1,0 +1,76 @@
+﻿ID,split,モダリティ,タスク,質問,回答可能,正解,必須事実,根拠,採点基準
+NKB-001,test,document,lookup,現行の勤務ガイドで、自宅勤務は週に何日まで？,True,週3日まで,週3日まで,D-HR p1 在宅勤務規程,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-002,test,document,lookup,在宅勤務はいつまでにどのシステムで申請する？,True,前営業日17時までにNekoTimeで申請し直属上長が承認,前営業日17時 / NekoTime / 直属上長,D-HR p1 在宅勤務規程,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-003,test,document,lookup,現行勤務ガイドで、小学3年生の子を育てる社員は短時間勤務を使える？,True,小学校3年生修了まで対象。1日6時間に短縮できる,小学校3年生修了まで / 6時間,D-HR p1 育児短時間勤務,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-004,test,document,lookup,国内出張後、精算まで何営業日ある？,True,帰着後10営業日以内,帰着後10営業日以内,D-HR p2 国内出張,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-005,dev,document,lookup,怪しいメールの添付を開いてしまった。初動は？,True,ネットワークを切断し内線771で情報システム部へ即時連絡。メールや画面は保存,ネットワーク切断 / 771 / 保存,D-IT p1 不審メール,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-006,test,document,lookup,私物のパソコンから社内VPNを使ってよい？,True,私物PCからの接続は禁止,私物PCからの接続は禁止,D-IT p1 VPN,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-007,test,document,lookup,取引先へ設計図を共有するリンクの条件は？,True,期限付きの指定相手限定リンクを使い部門長承認を受ける,期限付き / 指定相手限定 / 部門長承認,D-IT p1 業務データ,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-008,test,document,lookup,業務データの定期バックアップ時刻は？,True,毎日2時,毎日2時,D-IT p1 業務データ,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-009,test,pdf,causality,F2異音調査QI-041の原因は確定している？,True,未確定。変更時期の一致だけでECN-026を原因と断定できない,未確定 / 時期の一致では断定できない,P-QA p1 QI-041,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-010,dev,pdf,lookup,変更ECN-026の新しい固定ブラケットの部品IDは？,True,BRK-F2-B,BRK-F2-B,P-QA p1 ECN-026,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-011,test,pdf,lookup,ECN-026はいつ以降に製造するロットへ適用する？,True,2026年9月18日以降,2026年9月18日以降,P-QA p1 ECN-026,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-012,test,pdf,lookup,TEST-F2-118のS118-Bは何dBAで、音の規格に合格した？,True,43dBAで適合,43dBA / 適合,P-QA p2 TEST-F2-118,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-013,test,pdf,lookup,給餌試験の2サンプルだけでロット全体の合否を判断できる？,True,判断できない。ロット全体の合否や異音原因は決められない,判断できない。ロット全体の合否や異音原因は決められない,P-QA p2 TEST-F2-118,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-014,test,pdf,lookup,2025年の旧在宅勤務規程では週何日まで？,True,週2日まで,週2日まで,P-OLD p1 過去の在宅勤務,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-015,dev,pdf,lookup,旧在宅勤務規程はいつ廃止された？,True,2026年9月30日,2026年9月30日,P-OLD p1 適用期間,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-016,test,pdf,lookup,旧在宅勤務規程ではどんな申請方法だった？,True,2営業日前までにメールで申請,2営業日前までにメールで申請,P-OLD p1 過去の在宅勤務,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-017,test,spreadsheet,lookup,9月20日のF2ロットの工程内不良率は？,True,3.0%,3.0%,X-LOT ロット!A6:F6,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-018,test,spreadsheet,calculation,9月のF2の3ロットの生産台数の合計は？,True,"2,700台","2,700台","X-LOT ロット!D5:D7,D9",required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-019,test,spreadsheet,calculation,F2の3ロットの工程内不良台数は合わせて何台？,True,56台,56台,"X-LOT ロット!E5:E7,E9",required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-020,dev,spreadsheet,calculation,3ロットを合算した不良率を分母の生産台数で重み付けして求めて,True,56 / 2700 × 100 = 約2.07%,56 / 2700 / 2.07%,X-LOT ロット!D9:F9,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-021,test,spreadsheet,calculation,3ロットのうち最も不良率が低かったロットは？,True,LOT-F2-0910。1.0%,LOT-F2-0910 / 1.0%,X-LOT ロット!A5:F7,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-022,test,spreadsheet,calculation,EXP-101の申請額合計はいくら？,True,"36,600円","36,600円",X-EXP 国内出張!K5,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-023,test,spreadsheet,calculation,EXP-102の宿泊費は上限をいくら超過している？,True,"2,500円","2,500円",X-EXP 国内出張!E6:G6,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-024,test,spreadsheet,calculation,EXP-103の日当はいくら？,True,"2,000円","2,000円",X-EXP 国内出張!H7:I7,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-025,dev,spreadsheet,calculation,3件の出張費申請額の合計はいくら？,True,"63,280円。未承認申請も含む申請額の合計","63,280円 / 未承認含む","X-EXP 国内出張!K5:K7,K9",required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-026,test,spreadsheet,calculation,この例で承認済みの申請だけを合計すると？,True,"40,580円","40,580円",X-EXP 国内出張!K5:L7,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-027,test,presentation,lookup,Q4計画でW3交換フィルターを何個発注する予定？,True,"2,000個","2,000個",S-PLAN slide 2,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-028,test,presentation,lookup,Q4計画のF2改善品の発売判断日は？,True,2026年11月5日,2026年11月5日,S-PLAN slide 3,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-029,test,presentation,lookup,C1ソフト1.3の一般公開予定日は？,True,2026年11月12日,2026年11月12日,S-PLAN slide 4,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-030,dev,presentation,lookup,Q4計画のC1ソフトの社内ベータ開始日は？,True,2026年10月28日,2026年10月28日,S-PLAN slide 4,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-031,test,presentation,calculation,Q4計画の開発予算を全案件合わせるといくら？,True,"4,200,000円","4,200,000円",S-PLAN slide 5,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-032,test,presentation,lookup,Q4計画でW3予備在庫は何個を目標にする？,True,300個,300個,S-PLAN slide 6,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-033,test,audio,lookup,品質会議で決めた追加検査の実施日と担当者は？,True,10月14日、品質保証部の虎井,10月14日 / 虎井,A-QA 9.155-16.092s (segment 2),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-034,test,audio,lookup,品質会議では9月20日のロットから何台を抜き取る？,True,40台,40台,A-QA 16.492-26.502s (segment 3),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-035,dev,audio,calculation,品質会議の追加検査は2ロットで合計何台？,True,70台,70台,A-QA 16.492-26.502s (segment 3),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-036,test,audio,causality,品質会議の発言では、ブラケット変更が異音の原因と確定した？,True,未確認。変更時期が重なるだけでは断定しない,未確認 / 断定しない,A-QA 38.337-48.458s (segment 5),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-037,test,audio,lookup,品質会議で案内した次回会議の日時と場所は？,True,10月15日15時、本社の三毛ルーム,10月15日 / 15時 / 三毛ルーム,A-QA 48.858-60.973s (segment 6),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-038,test,audio,lookup,倉庫放送で案内した10月16日の出荷締切時刻は？,True,13時,13時,A-LOG 9.600-21.435s (segment 2),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-039,test,audio,lookup,倉庫の停電訓練は何時から何時まで？,True,10月16日16時から16時20分まで,10月16日 / 16時 / 16時20分,A-LOG 9.600-21.435s (segment 2),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-040,dev,audio,lookup,訓練当日の出荷データはいつまでにどのシステムへ登録する？,True,12時45分までにNekoMESへ登録,12時45分 / NekoMES（音声ではネコメス）,A-LOG 21.835-29.336s (segment 3),12時45分とネコメスを答えればよい。音声から英語表記を復元することは要求しない。根拠時刻を引用する。
+NKB-041,test,audio,lookup,倉庫の訓練中に異常を見つけた場合の担当者と内線番号は？,True,物流部の黒田、内線682,黒田 / 682,A-LOG 41.251-48.952s (segment 5),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-042,test,audio,lookup,倉庫放送では、設備を再起動する前に何を待つ？,True,終了放送を確認し、班長の安全確認を待つ,終了放送 / 班長の安全確認,A-LOG 49.352-60.002s (segment 6),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-043,test,video,lookup,F2検査動画に映っている検査台の番号は？,True,T-04,T-04,V-F2 0.0-6.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-044,test,video,lookup,F2検査動画の固定ネジ確認画面に表示された締付トルクは？,True,0.45N·m,0.45N·m,V-F2 6.0-12.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-045,dev,video,lookup,F2検査動画で音が不適合になるのは何秒以降で、表示値はいくつ？,True,12秒以降、48dBA,12秒 / 48dBA,V-F2 12.0-18.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-046,test,video,lookup,F2検査動画の最後に機体を移す隔離トレーの表示は？,True,HOLD-02。黄色の隔離トレー,HOLD-02 / 黄色,V-F2 18.0-24.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-047,test,video,lookup,F2検査動画の再検査票の番号は？,True,RETEST-108,RETEST-108,V-F2 18.0-24.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-048,test,video,lookup,W3梱包動画の最初に示される資材の棚番号は？,True,B-12,B-12,V-W3 0.0-6.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-049,test,video,visual,W3梱包動画の正規箱のラベルは何色？,True,青色,青色,V-W3 6.0-12.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-050,dev,video,lookup,W3梱包動画で1箱に入れる数量は？,True,24個,24個,V-W3 6.0-12.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-051,test,video,lookup,W3梱包動画の保留品の置き場と札の表示は？,True,棚C-03、赤い保留札,C-03 / 赤 / 保留,V-W3 12.0-18.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-052,test,video,lookup,W3梱包動画の最後の搬送先エリアはどこで、床表示は何色？,True,D-02、緑色,D-02 / 緑色,V-W3 18.0-24.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-053,test,mixed,cross_asset,2026年10月10日の在宅勤務は旧規程と現行規程のどちらを使い、週何日まで？,True,現行規程。旧規程は9月30日廃止、現行は週3日まで,現行 / 9月30日廃止 / 週3日,D-HR p1 在宅勤務 / P-OLD p1 適用期間,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-054,test,audio,temporal_exception,通常の当日出荷締切と10月16日の訓練日の締切は、それぞれ何時？,True,通常14時、10月16日は13時,通常14時 / 10月16日13時,A-LOG 9.600-21.435s (segment 2),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-055,dev,mixed,cross_asset,検査動画のS118-Aの48dBAは、品質通知の音規格を何dBA超える？,True,48−45＝3dBA超過,48 / 45 / 3dBA,V-F2 12.0-18.0s / P-QA p2 TEST-F2-118,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-056,test,mixed,cross_asset,9月20日と9月27日のロットの生産合計に対し、音声会議の追加抜取70台は何%？,True,70 / (1000 + 900) × 100 = 約3.68%,70 / 1900 / 3.68%,X-LOT ロット!D6:D7 / A-QA 16.492-26.502s (segment 3),required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-057,test,none,abstention,社長の自宅住所と個人携帯の番号は？,False,資料に記載がなく回答できない,資料に記載がなく回答できない,,答えが資料にないことを述べ、具体値を捏造しない
+NKB-058,test,none,abstention,2027年度の売上予測と営業利益率は？,False,資料に記載がなく回答できない,資料に記載がなく回答できない,,答えが資料にないことを述べ、具体値を捏造しない
+NKB-059,test,none,abstention,ロンドンの海外出張の宿泊費上限はいくら？,False,海外出張規程が収録されておらず回答できない,海外出張規程が収録されておらず回答できない,,答えが資料にないことを述べ、具体値を捏造しない
+NKB-060,dev,none,abstention,F2異音の原因はブラケット材質の変更だったと証明済み？,False,材質変更や原因確定の証拠がない。原因は未確定,原因未確定 / 材質変更は記載なし,P-QA p1 QI-041,原因が未確定であることを述べ、材質変更や原因証明を捏造しない。P-QAの根拠を引用する。
+NKB-061,test,video,lookup,C1更新動画では、1工程目に表示された対象機、端末ID、電源接続の確認内容は？,True,NC-C1、DEV-C1-07、AC電源接続を確認,対象機 NC-C1 / 端末 DEV-C1-07 / AC電源接続を確認,V-C1 0.0-6.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-062,test,video,lookup,C1更新動画では、バックアップのID、元バージョン、保存先は？,True,BK-C1-1008、元バージョン1.2、NekoDrive,バックアップID BK-C1-1008 / 元バージョン 1.2 / バックアップ先 NekoDrive,V-C1 6.0-12.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-063,test,video,visual,C1更新動画では、12–18秒に表示される「更新中」ラベルは、どの色ですか？,True,オレンジ色,ラベルに「更新中」と表示 / ラベルがオレンジ色で視認できる,V-C1 12.0-18.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-064,test,video,lookup,C1更新動画では、更新中に示される候補バージョンと操作上の注意は？,True,訓練用候補バージョン1.3、電源を切らない,候補バージョン 1.3 / 注意「電源を切らない」,V-C1 12.0-18.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-065,dev,video,lookup,C1更新動画では、最終検査のID、撮影記録の成功数、記録先は？,True,TEST-C1-207、3枚/3枚成功、NekoDrive,検査ID TEST-C1-207 / 撮影 3枚/3枚成功 / 記録先 NekoDrive,V-C1 18.0-24.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-066,test,video,lookup,倉庫安全点検動画では、倉庫の安全点検訓練動画で、通路R-02の実測幅と社内訓練用基準に対する判定は？,True,実測幅は1.2mで、社内訓練用基準の1.0m以上に対して適合,R-02 / 1.2m / 1.0m以上 / 適合,V-SAFE 0.0-6.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-067,test,video,visual,倉庫安全点検動画では、消火器位置FIRE-03の位置ラベルは何色で、点検予定はいつ？,True,赤色。点検予定は2027-03,FIRE-03 / 赤色 / 2027-03,V-SAFE 6.0-12.0s,required_factsを満たし、指定根拠を引用する。色はラベルの見た目から判定する。
+NKB-068,test,video,visual,倉庫安全点検動画では、非常口E-02の通行確認結果は何で、表示帯は何色？,True,障害物なし。緑色の「通行可」表示,E-02 / 障害物なし / 緑色 / 通行可,V-SAFE 12.0-18.0s,required_factsを満たし、指定根拠を引用する。色はラベルの見た目から判定する。
+NKB-069,test,video,visual,倉庫安全点検動画では、救急箱FIRST-04で照合した備品は何種類で、備品照合ラベルは何色？,True,6種類。青色の備品照合ラベル,FIRST-04 / 6種類 / 青色,V-SAFE 18.0-24.0s,required_factsを満たし、指定根拠を引用する。色はラベルの見た目から判定する。
+NKB-070,dev,video,lookup,倉庫安全点検動画では、動画の題名と、4つの点検工程の構成・合計尺は？,True,「倉庫の安全点検訓練記録」。4工程を各6秒で構成し、合計24秒,倉庫の安全点検訓練記録 / 4工程 / 各6秒 / 合計24秒,V-SAFE 0.0-6.0s / V-SAFE 6.0-12.0s / V-SAFE 12.0-18.0s / V-SAFE 18.0-24.0s,required_factsを満たし、指定根拠を引用する。数値は単位・期間・対象を含める。
+NKB-071,test,video,lookup,W3整備動画では、整備記録の対象機型番と整備票番号は？,True,NW-W3、MAINT-W3-012,NW-W3 / MAINT-W3-012,V-W3-M 0.0-6.0s,required_factsをすべて満たし、対象機型番と整備票番号を対応付ける。
+NKB-072,test,video,lookup,W3整備動画では、交換フィルターの型番・交換目安・取り外した部品の扱いは？,True,FLT-W3-02。交換の目安は30日ごと。取り外した部品は回収。,FLT-W3-02 / 30日ごと / 取り外した部品を回収,V-W3-M 6.0-12.0s,required_factsをすべて満たす。交換の目安は「30日ごと」と回答する。
+NKB-073,test,video,lookup,W3整備動画では、通水確認の水量・時間と、漏れ件数はいくつ？,True,250mLを20秒。漏れ0件。,250mL / 20秒 / 漏れ 0件,V-W3-M 12.0-18.0s,数量と単位・時間・件数をすべて正しく答える。
+NKB-074,test,video,visual,W3整備動画では、12〜18秒の通水確認後、「確認済」ラベルは何色？,True,青色,青色（ラベルの実色）,V-W3-M 12.0-18.0s,「確認済」ラベルの実際の色を映像から判定して回答する。画面内の文字だけで色を推測しない。
+NKB-075,dev,video,visual,W3整備動画では、最終工程で班長が確認した点検記録番号と登録先は？「完了」ラベルは何色？,True,QC-W3-204をNekoMESへ登録し、班長が確認して終了。緑色の「完了」ラベル。,QC-W3-204 / NekoMES / 班長が確認して終了 / 緑色（ラベルの実色）,V-W3-M 18.0-24.0s,点検記録番号と登録先を正しく答え、ラベル色は実際の表示色から判定する。

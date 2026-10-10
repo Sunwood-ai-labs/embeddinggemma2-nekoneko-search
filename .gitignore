@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+quickstart/inputs/*
+!quickstart/inputs/.gitkeep
+quickstart/out/
+*.log

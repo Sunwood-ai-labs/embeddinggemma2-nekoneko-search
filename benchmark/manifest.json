@@ -1,0 +1,159 @@
+{
+  "schema": "nekoneko-multimodal-benchmark/v1",
+  "company": "ネコネコインダストリー株式会社",
+  "fictional": true,
+  "as_of": "2026-10-10",
+  "input_directory": "inputs",
+  "excluded_directories": [
+    "benchmark",
+    "sources",
+    "qa",
+    "build"
+  ],
+  "assets": [
+    {
+      "asset_id": "D-HR",
+      "path": "inputs/documents/hr_policy.docx",
+      "format": "docx",
+      "bytes": 39455,
+      "sha256": "7cc5607558db096ce00f5dc59c5ae8be074e0447e9435c6e4380b4a15b73cc17",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "D-IT",
+      "path": "inputs/documents/security_guide.docx",
+      "format": "docx",
+      "bytes": 38944,
+      "sha256": "680a17750cd0d4cf7034c9627b622f150194acedb48e0d442cc50e2efb437dba",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "P-QA",
+      "path": "inputs/documents/quality_notice.pdf",
+      "format": "pdf",
+      "bytes": 4616,
+      "sha256": "a9229dc17a48b6221b0e9615631cbb6a13c767f54c35fa405e57fa67c3a1b52a",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "P-OLD",
+      "path": "inputs/documents/archived_remote_2025.pdf",
+      "format": "pdf",
+      "bytes": 3101,
+      "sha256": "a2704fafdec01d4bcbca9e48f8ad7e55ff854c0a7511a5212602789c8b7904ed",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "X-LOT",
+      "path": "inputs/spreadsheets/production_202609.xlsx",
+      "format": "xlsx",
+      "bytes": 4641,
+      "sha256": "d35c0e28a33f5242515ce26555c1833b4fafba39aa00f084127766590cc604fa",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "X-EXP",
+      "path": "inputs/spreadsheets/expense_examples.xlsx",
+      "format": "xlsx",
+      "bytes": 5038,
+      "sha256": "d5d70b7e786b04a42c3c975c1ca8f3c70c996df5d2549feeae4804d6a3ec74f5",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "S-PLAN",
+      "path": "inputs/presentations/q4_release_plan.pptx",
+      "format": "pptx",
+      "bytes": 34554,
+      "sha256": "8279a232214640b635e5a3f3126b7d3750b76b8394e18c6c1a0c72a2e178a46e",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "A-QA",
+      "path": "inputs/audio/quality_meeting.wav",
+      "format": "wav",
+      "bytes": 2688948,
+      "sha256": "4f34d64481b17b0d7ac28da9f6695edf43f02e0fb16dfd8b755463626bf6471e",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "A-LOG",
+      "path": "inputs/audio/warehouse_announcement.wav",
+      "format": "wav",
+      "bytes": 2646128,
+      "sha256": "277a6e0c4542fbeebe702dc2e308e68cc7191d23975bd92561dadee779222508",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "V-F2",
+      "path": "inputs/video/f2_inspection.mp4",
+      "format": "mp4",
+      "bytes": 377688,
+      "sha256": "6a769269781ac8e987a9424657f37f92df6aa946027db27208f30a065c4b156c",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "V-W3",
+      "path": "inputs/video/w3_packing.mp4",
+      "format": "mp4",
+      "bytes": 416527,
+      "sha256": "cd002332a7139f81697a6d27fef5827f3c480c565b1d60546d310c41c27a5581",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "V-C1",
+      "path": "inputs/video/c1_update.mp4",
+      "format": "mp4",
+      "bytes": 892567,
+      "sha256": "613d72ea733eeb06b800e7c00b103c7f98b266a4c934a25caf92806ecc661241",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "V-SAFE",
+      "path": "inputs/video/warehouse_safety.mp4",
+      "format": "mp4",
+      "bytes": 1019243,
+      "sha256": "1f7c271ff5e11167a30fc32f31374d7d0ad4695a2687bbac051f0bb838eef696",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    },
+    {
+      "asset_id": "V-W3-M",
+      "path": "inputs/video/w3_maintenance.mp4",
+      "format": "mp4",
+      "bytes": 966387,
+      "sha256": "1ebbcabb09cd9bec7ed8f4b7986544c3e875c612e6bce07190ccbbac69d37c76",
+      "fictional": true,
+      "as_of": "2026-10-10"
+    }
+  ],
+  "qa_count": 75,
+  "answerable_count": 71,
+  "unanswerable_count": 4,
+  "splits": {
+    "test": 60,
+    "dev": 15
+  },
+  "modality_counts": {
+    "document": 8,
+    "pdf": 8,
+    "spreadsheet": 10,
+    "presentation": 6,
+    "audio": 11,
+    "video": 25,
+    "mixed": 3,
+    "none": 4
+  },
+  "model_benchmark_executed": false
+}
