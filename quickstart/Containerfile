@@ -1,0 +1,13 @@
+# 実験で使った2つのイメージ（experiment/text-search と experiment/multimodal）を1つにまとめたもの。
+FROM docker.io/library/python:3.12-slim
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 HF_HOME=/cache \
+    TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=4
+WORKDIR /work
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+    torch==2.14.1 torchvision==0.29.1 torchcodec==0.16.0
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY *.py ./
