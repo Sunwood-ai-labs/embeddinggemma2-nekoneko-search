@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 336" width="880" height="336" role="img" aria-label="正解資料が1位は57問中43問。上位5件まで見れば57問すべて" font-family="'Segoe UI','Hiragino Sans','Yu Gothic UI','Meiryo','Noto Sans JP',sans-serif">
+<rect x="0.5" y="0.5" width="879" height="335" rx="12" fill="#FFFFFF" stroke="#D1D5DB"/>
+<text x="32" y="44" font-size="20" font-weight="700" fill="#111827">正解資料が1位は57問中43問。上位5件まで見れば57問すべて</text>
+<text x="32" y="70" font-size="13.5" fill="#6B7280">EmbeddingGemma 2。14資料・63検索単位に対する、答えのある質問57問の検索結果</text>
+<text x="32" y="114" font-size="15" font-weight="700" fill="#111827">1位が正解資料</text>
+<text x="32" y="132" font-size="12" fill="#6B7280">検索結果の先頭が、答えの載った資料</text>
+<rect x="400" y="100" width="300" height="24" rx="4" fill="#EEF0F2"/>
+<rect x="400" y="100" width="226.3" height="24" rx="4" fill="#1A73E8"><title>1位が正解資料: 43/57</title></rect>
+<text x="712" y="118" font-size="16" font-weight="700" fill="#111827">43<tspan font-weight="400" fill="#6B7280"> / 57</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　75.4%</tspan></text>
+<text x="32" y="172" font-size="15" font-weight="700" fill="#111827">上位3件に正解資料</text>
+<text x="32" y="190" font-size="12" fill="#6B7280"></text>
+<rect x="400" y="158" width="300" height="24" rx="4" fill="#EEF0F2"/>
+<rect x="400" y="158" width="278.9" height="24" rx="4" fill="#1A73E8"><title>上位3件に正解資料: 53/57</title></rect>
+<text x="712" y="176" font-size="16" font-weight="700" fill="#111827">53<tspan font-weight="400" fill="#6B7280"> / 57</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　93.0%</tspan></text>
+<text x="32" y="230" font-size="15" font-weight="700" fill="#111827">上位5件に正解資料</text>
+<text x="32" y="248" font-size="12" fill="#6B7280"></text>
+<rect x="400" y="216" width="300" height="24" rx="4" fill="#EEF0F2"/>
+<rect x="400" y="216" width="300.0" height="24" rx="4" fill="#1A73E8"><title>上位5件に正解資料: 57/57</title></rect>
+<text x="712" y="234" font-size="16" font-weight="700" fill="#111827">57<tspan font-weight="400" fill="#6B7280"> / 57</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　100.0%</tspan></text>
+<text x="32" y="288" font-size="15" font-weight="700" fill="#111827">根拠の箇所まで全部そろう</text>
+<text x="32" y="306" font-size="12" fill="#6B7280">上位5つの検索単位に、必要なページ・行・区間がすべて入る</text>
+<rect x="400" y="274" width="300" height="24" rx="4" fill="#EEF0F2"/>
+<rect x="400" y="274" width="221.1" height="24" rx="4" fill="#1A73E8"><title>根拠の箇所まで全部そろう: 42/57</title></rect>
+<text x="712" y="292" font-size="16" font-weight="700" fill="#111827">42<tspan font-weight="400" fill="#6B7280"> / 57</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　73.7%</tspan></text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 278" width="880" height="278" role="img" aria-label="資料の登録にかかった560秒のうち、90%は動画" font-family="'Segoe UI','Hiragino Sans','Yu Gothic UI','Meiryo','Noto Sans JP',sans-serif">
+<rect x="0.5" y="0.5" width="879" height="277" rx="12" fill="#FFFFFF" stroke="#D1D5DB"/>
+<text x="32" y="44" font-size="20" font-weight="700" fill="#111827">資料の登録にかかった560秒のうち、90%は動画</text>
+<text x="32" y="70" font-size="13.5" fill="#6B7280">EmbeddingGemma 2、CPU。63検索単位を1つずつベクトルにした時間の合計</text>
+<text x="32" y="114" font-size="15" font-weight="700" fill="#111827">動画<tspan font-size="12.5" font-weight="400" fill="#6B7280">　20単位</tspan></text>
+<text x="32" y="132" font-size="12" fill="#6B7280">6秒の区間。1単位あたり中央値 24.6秒</text>
+<rect x="400" y="100" width="280" height="24" rx="4" fill="#EEF0F2"/>
+<rect x="400" y="100" width="252.1" height="24" rx="4" fill="#1A73E8"><title>動画: 504.5秒</title></rect>
+<text x="692" y="118" font-size="16" font-weight="700" fill="#111827">505秒<tspan font-size="13" font-weight="400" fill="#6B7280">　90%</tspan></text>
+<text x="32" y="172" font-size="15" font-weight="700" fill="#111827">音声<tspan font-size="12.5" font-weight="400" fill="#6B7280">　8単位</tspan></text>
+<text x="32" y="190" font-size="12" fill="#6B7280">15秒の区間。1単位あたり中央値 4.9秒</text>
+<rect x="400" y="158" width="280" height="24" rx="4" fill="#EEF0F2"/>
+<rect x="400" y="158" width="19.5" height="24" rx="4" fill="#1A73E8"><title>音声: 39.0秒</title></rect>
+<text x="692" y="176" font-size="16" font-weight="700" fill="#111827">39秒<tspan font-size="13" font-weight="400" fill="#6B7280">　7%</tspan></text>
+<text x="32" y="230" font-size="15" font-weight="700" fill="#111827">文章<tspan font-size="12.5" font-weight="400" fill="#6B7280">　35単位</tspan></text>
+<text x="32" y="248" font-size="12" fill="#6B7280">Office・PDFから抜き出した文章。1単位あたり中央値 0.4秒</text>
+<rect x="400" y="216" width="280" height="24" rx="4" fill="#EEF0F2"/>
+<rect x="400" y="216" width="8.5" height="24" rx="4" fill="#1A73E8"><title>文章: 16.9秒</title></rect>
+<text x="692" y="234" font-size="16" font-weight="700" fill="#111827">17秒<tspan font-size="13" font-weight="400" fill="#6B7280">　3%</tspan></text>
+</svg>

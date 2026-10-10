@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 478" width="880" height="478" role="img" aria-label="動画は20問中19問で1位。Excelは8問中2問、音声は9問中4問" font-family="'Segoe UI','Hiragino Sans','Yu Gothic UI','Meiryo','Noto Sans JP',sans-serif">
+<rect x="0.5" y="0.5" width="879" height="477" rx="12" fill="#FFFFFF" stroke="#D1D5DB"/>
+<text x="32" y="44" font-size="20" font-weight="700" fill="#111827">動画は20問中19問で1位。Excelは8問中2問、音声は9問中4問</text>
+<text x="32" y="70" font-size="13.5" fill="#6B7280">EmbeddingGemma 2。質問が指定した資料の形式ごとに、その資料が1位になった数</text>
+<text x="300" y="104" font-size="12.5" fill="#6B7280">1位が正解資料だった質問</text>
+<text x="750" y="104" font-size="12.5" fill="#6B7280">上位3件なら</text>
+<text x="32" y="138" font-size="15" font-weight="700" fill="#111827">Word</text>
+<text x="32" y="156" font-size="12" fill="#6B7280">見出しごとの文章</text>
+<rect x="300" y="124" width="300" height="22" rx="4" fill="#EEF0F2"/>
+<rect x="300" y="124" width="300.0" height="22" rx="4" fill="#1A73E8"><title>Word: 7/7</title></rect>
+<text x="612" y="142" font-size="16" font-weight="700" fill="#111827">7<tspan font-weight="400" fill="#6B7280"> / 7</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　100.0%</tspan></text>
+<text x="32" y="188" font-size="15" font-weight="700" fill="#111827">PowerPoint</text>
+<text x="32" y="206" font-size="12" fill="#6B7280">スライドごとの文章</text>
+<rect x="300" y="174" width="300" height="22" rx="4" fill="#EEF0F2"/>
+<rect x="300" y="174" width="300.0" height="22" rx="4" fill="#1A73E8"><title>PowerPoint: 5/5</title></rect>
+<text x="612" y="192" font-size="16" font-weight="700" fill="#111827">5<tspan font-weight="400" fill="#6B7280"> / 5</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　100.0%</tspan></text>
+<text x="32" y="238" font-size="15" font-weight="700" fill="#111827">動画</text>
+<text x="32" y="256" font-size="12" fill="#6B7280">6秒ごとの区間をそのまま入力</text>
+<rect x="300" y="224" width="300" height="22" rx="4" fill="#EEF0F2"/>
+<rect x="300" y="224" width="285.0" height="22" rx="4" fill="#1A73E8"><title>動画: 19/20</title></rect>
+<text x="612" y="242" font-size="16" font-weight="700" fill="#111827">19<tspan font-weight="400" fill="#6B7280"> / 20</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　95.0%</tspan></text>
+<text x="32" y="288" font-size="15" font-weight="700" fill="#111827">PDF</text>
+<text x="32" y="306" font-size="12" fill="#6B7280">ページごとの文章</text>
+<rect x="300" y="274" width="300" height="22" rx="4" fill="#EEF0F2"/>
+<rect x="300" y="274" width="250.0" height="22" rx="4" fill="#1A73E8"><title>PDF: 5/6</title></rect>
+<text x="612" y="292" font-size="16" font-weight="700" fill="#111827">5<tspan font-weight="400" fill="#6B7280"> / 6</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　83.3%</tspan></text>
+<text x="32" y="338" font-size="15" font-weight="700" fill="#111827">複数資料の照合</text>
+<text x="32" y="356" font-size="12" fill="#6B7280">音声とExcelの両方が必要</text>
+<rect x="300" y="324" width="300" height="22" rx="4" fill="#EEF0F2"/>
+<rect x="300" y="324" width="150.0" height="22" rx="4" fill="#1A73E8"><title>複数資料の照合: 1/2</title></rect>
+<text x="612" y="342" font-size="16" font-weight="700" fill="#111827">1<tspan font-weight="400" fill="#6B7280"> / 2</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　50.0%</tspan></text>
+<text x="32" y="388" font-size="15" font-weight="700" fill="#111827">音声</text>
+<text x="32" y="406" font-size="12" fill="#6B7280">15秒ごとの区間をそのまま入力</text>
+<rect x="300" y="374" width="300" height="22" rx="4" fill="#EEF0F2"/>
+<rect x="300" y="374" width="133.3" height="22" rx="4" fill="#1A73E8"><title>音声: 4/9</title></rect>
+<text x="612" y="392" font-size="16" font-weight="700" fill="#111827">4<tspan font-weight="400" fill="#6B7280"> / 9</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　44.4%</tspan></text>
+<text x="32" y="438" font-size="15" font-weight="700" fill="#111827">Excel</text>
+<text x="32" y="456" font-size="12" fill="#6B7280">1行ごとの文章</text>
+<rect x="300" y="424" width="300" height="22" rx="4" fill="#EEF0F2"/>
+<rect x="300" y="424" width="75.0" height="22" rx="4" fill="#1A73E8"><title>Excel: 2/8</title></rect>
+<text x="612" y="442" font-size="16" font-weight="700" fill="#111827">2<tspan font-weight="400" fill="#6B7280"> / 8</tspan><tspan font-size="13" font-weight="400" fill="#6B7280">　25.0%</tspan></text>
+<text x="750" y="141" font-size="14" fill="#111827">7<tspan fill="#6B7280"> / 7</tspan></text>
+<text x="750" y="191" font-size="14" fill="#111827">5<tspan fill="#6B7280"> / 5</tspan></text>
+<text x="750" y="241" font-size="14" fill="#111827">20<tspan fill="#6B7280"> / 20</tspan></text>
+<text x="750" y="291" font-size="14" fill="#111827">6<tspan fill="#6B7280"> / 6</tspan></text>
+<text x="750" y="341" font-size="14" fill="#111827">2<tspan fill="#6B7280"> / 2</tspan></text>
+<text x="750" y="391" font-size="14" fill="#111827">8<tspan fill="#6B7280"> / 9</tspan></text>
+<text x="750" y="441" font-size="14" fill="#111827">5<tspan fill="#6B7280"> / 8</tspan></text>
+</svg>
